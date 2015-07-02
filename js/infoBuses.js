@@ -14,10 +14,7 @@ WorkerScript.onMessage = function(sentMessage){
     xmlHttp.open("GET", url, true);
     xmlHttp.timeout = 4000; // Set timeout to 4 seconds (4000 milliseconds)
     xmlHttp.ontimeout = function (posteId){
-        var msg = '{"id":"tuzsa-'+posteId+'", "timeout":"true"}';
-        console.debug("timeout!!!");
-        var poste = JSON.parse(msg);
-        WorkerScript.sendMessage({"posteInfo":poste});
+        timeout(posteId);
     };
     xmlHttp.send(null);
     xmlHttp.onreadystatechange = function() {
@@ -29,6 +26,8 @@ WorkerScript.onMessage = function(sentMessage){
             if (typeof poste  != 'undefined'){
                 WorkerScript.sendMessage({"posteInfo":poste});
             }
+        } else if (xmlHttp.readyState===4 && xmlHttp.status===0){
+            timeout(posteId);
         }
     }
 }

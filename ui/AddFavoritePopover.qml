@@ -6,17 +6,22 @@ import Ubuntu.Components.Popups 1.0
 Component {
     id: popoverComponent
     Popover {
+        id:popoverobj
         y: units.gu(15)
-        height: units.gu(20)
         anchors {//lo colocamos en medio
             left: parent.left
             right: parent.right
             margins: {
-                leftMargin: units.gu(5)
-                rightMargin: units.gu(5)
+                leftMargin: units.gu(2)
+                rightMargin: units.gu(2)
             }
             //horizontalCenter: parent.horizontalCenter
             //verticalCenter: parent.verticalCenter
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onPressed: popoverobj.hide();
         }
 
         Text {
@@ -29,8 +34,8 @@ Component {
         }
         Icon{
             id:icono
-            width: units.gu(3)
-            height: units.gu(3)
+            width: units.gu(6)
+            height: units.gu(6)
             anchors {
                 left: txt.right
                 verticalCenter: parent.verticalCenter

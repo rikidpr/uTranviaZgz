@@ -15,7 +15,7 @@ WorkerScript.onMessage = function(sentMessage){
 			var info = JSON.parse(msg);
 			if (typeof info  != 'undefined'){
                 WorkerScript.sendMessage({"stationInfo":info});
-			}
-		}
+            }
+        }
 	}
 }
