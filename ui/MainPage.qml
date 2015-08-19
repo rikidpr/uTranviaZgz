@@ -9,11 +9,11 @@ Page {
 
     property color bikesAvailableColor: "#AA0000"
     property color spotsAvailableColor: "#EEAAAA"
-    property int preSelectedStationId:101
+    property int preSelectedStationId:0
 
     // Always begin by loading the selected stop.
     Component.onCompleted: {
-        queryStationsWorker.sendMessage({"stationId": preSelectedStationId})
+        queryStationsWorker.sendMessage()
     }
 
     function obtenerInfoEstacion (stationId){
