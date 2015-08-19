@@ -29,7 +29,7 @@ Page {
                 var station = messageObject.stations[i];
                 var linea;
                 var destino;
-                if (station.destinos.length>0){
+                if (typeof station.destinos !== 'undefined' && station.destinos.length>0){
                     var row = station.destinos[0];
                     linea = row.linea;
                     destino = row.destino;
@@ -38,12 +38,14 @@ Page {
                     destino = "ACADEMIA";
                 }
 
-                stationsModel.append({ "id": station.id,
+                stationsModel.append({ "idParada": station.id,
                                         "name": station.title,
                                         "linea": linea,
-                                        "destino":destino});
+                                        "destino":destino,
+                                         "description": linea+"-"+destino
+                                     });
             }
-            stationSelector.selectedIndex = getStationIndex(preSelectedStationId, stationsModel)
+            //stationSelector.selectedIndex = getStationIndex(preSelectedStationId, stationsModel)
         }
     }
 
@@ -68,7 +70,7 @@ Page {
     }
 
 
-    head.actions: [
+    /*head.actions: [
         Action {
             id: addFavoriteAction
 
@@ -103,11 +105,11 @@ Page {
 
             onTriggered: PopupUtils.open(aboutPopover)
         }
-    ]
+    ]*/
 
-    AboutPopover {
+    /*AboutPopover {
         id: aboutPopover
-    }
+    }*/
 
     Item {
         id: selectStationRow
@@ -163,7 +165,9 @@ Page {
 
             onSelectedIndexChanged: {
                 activityIndicator.running = true
-                queryInfoStationWorker.sendMessage({'stationId': stationsModel.get(stationSelector.selectedIndex).id})
+                console.log(stationSelector.selectedIndex);
+                console.log(stationsModel.get(stationSelector.selectedIndex).idParada);
+                queryInfoStationWorker.sendMessage({'stationId': stationsModel.get(stationSelector.selectedIndex).idParada})
             }
         }
 
@@ -233,8 +237,9 @@ Page {
         }
     }
 
-    LisModel{
+    ListModel{
         id:stationInfoModel
+        ListElement{linea:"linea"; destino:"destino"; minutos:"minutos"}
     }
 
 }
