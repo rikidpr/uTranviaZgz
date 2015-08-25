@@ -6,7 +6,7 @@ import "ui"
 MainView {
     id: mainView
 
-    applicationName: "andpr.tranviazgzapp"
+    applicationName: "utranviazgz.andprsoft"
     property string version: "0.1"
 
     useDeprecatedToolbar: false
