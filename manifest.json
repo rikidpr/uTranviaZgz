@@ -1,0 +1,17 @@
+{
+    "name": "utranviazgz.andprsoft",
+    "description": "description of uTranviaZgz",
+    "architecture": "all",
+    "title": "uTranviaZgz",
+    "hooks": {
+        "TranviaZgz": {
+            "apparmor": "TranviaZgz.apparmor",
+            "desktop":  "TranviaZgz.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Ricardo Sáez <andprsoft@gmail.com>",
+    "framework" : "ubuntu-sdk-15.04"
+}
+
+

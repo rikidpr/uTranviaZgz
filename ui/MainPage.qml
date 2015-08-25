@@ -7,8 +7,8 @@ Page {
 
     title: i18n.tr("Tranvia Zgz")
 
-    property color bikesAvailableColor: "#AA0000"
-    property color spotsAvailableColor: "#EEAAAA"
+    property color nextColor: "#AA0000"
+    property color nextNextColor: "#EEAAAA"
     property int preSelectedStationId:0
 
     // Always begin by loading the selected stop.
@@ -55,22 +55,21 @@ Page {
         source: "../js/infoParada.js"
 
         onMessage: {
-            for (var i = 0; i < messageObject.stationInfo.destinos.length; i++) {
-                var info = messageObject.stationInfo.destinos[i]
-                stationInfoModel.append({"linea":info.linea,
-                                            "destino":info.destino,
-                                            "minutos":info.minutos});
-            }
+            activityIndicator.running = false;
+            var infoNext = messageObject.stationInfo.destinos[0];
+            nextTramLabel.text = infoNext.minutos;
+            var infoNextNext = messageObject.stationInfo.destinos[1];
+            nextNextTramLabel.text = infoNextNext.minutos;
         }
     }
 
-
+/*
     AddFavoritePopover{
         id:addFavoritePopover
     }
 
 
-    /*head.actions: [
+    head.actions: [
         Action {
             id: addFavoriteAction
 
@@ -177,69 +176,137 @@ Page {
         }
     }
 
-    ListView {
-        id: infoStationList
+    Row {
+        id: availabilityRow
+
+        spacing: 5
+
         anchors {
-            top: stationRow.bottom
             left: parent.left
             right: parent.right
+            top: stationRow.bottom
+            topMargin: units.gu(2)
+
             margins: units.gu(2)
         }
-        clip: true
-        model: stationInfoModel
-        delegate: infoDelegate
-    }
+        UbuntuShape{
+            id:nextTram
+            width: parent.width / 2
+            height: units.gu(13)
+            radius: "medium"
+            color: nextColor
 
-    Component {
-        id:infoDelegate
-        Item{
-            anchors{
-                left: parent.left
-                right: parent.right
-            }
-            height: units.gu(4)
-            Label{
-                id: txtLinea
-                text: linea
-                width: units.gu(5)
-                fontSize: "small"
+            Label {
+                text: "  Primero"
                 anchors {
-                    top: parent.top
-                    bottom: parent.bottom
                     left: parent.left
-                    margins: units.gu(0.5)
-                }
-
-            }
-            Label{
-                text: destino
-                width: units.gu(15)
-                fontSize: "small"
-                anchors {
-                    top: parent.top
-                    bottom: parent.bottom
-                    left: txtLinea.right
-                    right: txtMinutos.left
-                    margins: units.gu(0.5)
-                }
-            }
-            Label{
-                id:txtMinutos
-                text: minutos
-                fontSize: "x-large"
-                anchors {
-                    top: parent.top
-                    bottom: parent.bottom
                     right: parent.right
-                    margins: units.gu(0.5)
+                    leftMargin: units.gu(1)
                 }
+                color: "white"
+            }
+            Label {
+                id: nextTramLabel
+                text: ""
+                color: "white"
+                fontSize: "x-large"
+                anchors.centerIn: parent
+            }
+        }
+        UbuntuShape {
+            id: nextNextTram
+            width: parent.width / 2
+            height: units.gu(13)
+            radius: "medium"
+            color: nextNextColor
+            Label {
+                text: "Segundo"
+
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    leftMargin: units.gu(1)
+                }
+                color: "white"
+            }
+
+            Label {
+                id: nextNextTramLabel
+                text: ""
+                color: "white"
+                fontSize: "x-large"
+                anchors.centerIn: parent
             }
         }
     }
 
-    ListModel{
-        id:stationInfoModel
-        ListElement{linea:"linea"; destino:"destino"; minutos:"minutos"}
-    }
+ /*   Row{
+
+        ListView {
+            id: infoStationList
+            anchors {
+                top: stationRow.bottom
+                left: parent.left
+                right: parent.right
+                margins: units.gu(2)
+            }
+            clip: true
+            model: stationInfoModel
+            delegate: infoDelegate
+        }
+
+        Component {
+            id:infoDelegate
+            Item{
+                anchors{
+                    left: parent.left
+                    right: parent.right
+                }
+                height: units.gu(4)
+                Label{
+                    id: txtLinea
+                    text: linea
+                    width: units.gu(5)
+                    fontSize: "small"
+                    anchors {
+                        top: parent.top
+                        bottom: parent.bottom
+                        left: parent.left
+                        margins: units.gu(0.5)
+                    }
+
+                }
+                Label{
+                    text: destino
+                    width: units.gu(15)
+                    fontSize: "small"
+                    anchors {
+                        top: parent.top
+                        bottom: parent.bottom
+                        left: txtLinea.right
+                        right: txtMinutos.left
+                        margins: units.gu(0.5)
+                    }
+                }
+                Label{
+                    id:txtMinutos
+                    text: minutos
+                    fontSize: "x-large"
+                    anchors {
+                        top: parent.top
+                        bottom: parent.bottom
+                        right: parent.right
+                        margins: units.gu(0.5)
+                    }
+                }
+            }
+        }
+
+        ListModel{
+            id:stationInfoModel
+            ListElement{linea:"linea"; destino:"destino"; minutos:"minutos"}
+        }
+
+    }*/
 
 }

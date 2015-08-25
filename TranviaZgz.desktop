@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=TranviaZgz
+Exec=qmlscene $@ TranviaZgz.qml
+Icon=uTranviaZgz.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+
