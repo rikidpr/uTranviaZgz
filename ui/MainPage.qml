@@ -42,14 +42,31 @@ Page {
         }
     }
 
+    function getInfoStation(){
+        if (stationSelector.selectedIndex > 0){
+            activityIndicator.running = true
+            var dest = destinosModel.get(destinoSelector.selectedIndex);
+            var stationsModel;
+            if (dest.destinoId === 1){
+                stationsModel = stationsModelAcademia;
+            } else {
+                stationsModel = stationsModelMagoOz;
+            }
+            if (stationSelector.selected)
+            console.log(stationSelector.selectedIndex);
+            console.log(stationsModel.get(stationSelector.selectedIndex).idParada);
+            queryInfoStationWorker.sendMessage({'stationId': stationsModel.get(stationSelector.selectedIndex).idParada})
+        }
+    }
+
 /*
     AddFavoritePopover{
         id:addFavoritePopover
     }
-
+*/
 
     head.actions: [
-        Action {
+  /*      Action {
             id: addFavoriteAction
 
             iconName: "add"
@@ -82,13 +99,20 @@ Page {
             text: "About"
 
             onTriggered: PopupUtils.open(aboutPopover)
+        }*/
+        Action {
+            id: reloadAction
+            iconName: "reload"
+            text: "reload"
+            onTriggered: getInfoStation();
         }
-    ]*/
+
+    ]
 
     /*AboutPopover {
         id: aboutPopover
     }*/
-	Row {
+    Row {
         id: selectDestinoRow
         Label {
             id: selectDestinoLabel
@@ -104,7 +128,7 @@ Page {
             margins: units.gu(2)
         }
     }
-	Row {
+    Row {
         id: destinoRow
 
         spacing: -20
@@ -117,9 +141,10 @@ Page {
             topMargin: units.gu(4)
             margins: units.gu(2)
         }
-		
+
 		ListModel{
 			id:destinosModel 
+            ListElement{name:"Selecciona un destino"; description:"..."; destinoId:"0"}
 			ListElement{name:"AVENIDA DE LA ACADEMIA"; description:"LINEA 1"; destinoId:"1"}
 			ListElement{name:"MAGO DE OZ"; description:"LINEA 1"; destinoId:"2"}
 		}
@@ -139,19 +164,19 @@ Page {
 				var idx = destinoSelector.selectedIndex;
 				switch (idx){
 				case 0:
-					stationRow.model = null;
+                    stationSelector.model = null;
 					break;
 				case 1: 
-					stationRow.model = stationsModelAcademia;
+                    stationSelector.model = stationsModelAcademia;
 					break;
 				case 2: 
-					stationRow.model = stationsModelMagoOz;
+                    stationSelector.model = stationsModelMagoOz;
 					break;
 				}
             }
         }
 	}
-	
+
     Row {
         id: selectStationRow
         Label {
@@ -168,7 +193,7 @@ Page {
         }
 
         anchors {
-            top: parent.top
+            top: destinoRow.bottom
             left: parent.left
             right: parent.right
 
@@ -179,10 +204,8 @@ Page {
     Row {
         id: stationRow
 
-        spacing: -20
-
         anchors {
-            top: selectStationRow.top
+            top: selectStationRow.bottom
             left: parent.left
             right: parent.right
 
@@ -194,20 +217,17 @@ Page {
             id: stationSelector
             containerHeight: units.gu(21.5)
             expanded: false
-            model: stationsModel
+            //model: stationsModel
 
             delegate: OptionSelectorDelegate {
                 text: name
                 subText: description
             }
 
-            onSelectedIndexChanged: {
-                activityIndicator.running = true
-                console.log(stationSelector.selectedIndex);
-                console.log(stationsModel.get(stationSelector.selectedIndex).idParada);
-                queryInfoStationWorker.sendMessage({'stationId': stationsModel.get(stationSelector.selectedIndex).idParada})
-            }
+            onSelectedIndexChanged: getInfoStation();
         }
+
+
 
         ListModel {//sacar a otro file
             id: stationsModelAcademia
@@ -269,6 +289,7 @@ Page {
 			ListElement{idParada:"2501"; text:"MAGO DE OZ"; name:"MAGO DE OZ"; linea:"L1"; destino:"MAGO DE OZ"; description:"L1-MAGO DE OZ"}
 		}
     }
+
 
     Row {
         id: availabilityRow
@@ -334,73 +355,26 @@ Page {
         }
     }
 
- /*   Row{
+    /*
+        id:realoadRow
+        anchors {
+            left: parent.left
+            right: parent.right
+            top: availabilityRow.bottom
+            topMargin: units.gu(2)
 
-        ListView {
-            id: infoStationList
-            anchors {
-                top: stationRow.bottom
-                left: parent.left
-                right: parent.right
-                margins: units.gu(2)
-            }
-            clip: true
-            model: stationInfoModel
-            delegate: infoDelegate
+            margins: units.gu(2)
+        }
+        Button {
+          id:btnReload
+          color: UbuntuColors.warmGrey
+          iconName:"reload"
+          height: units.gu(6)
+          width: realoadRow.width
+          onClicked: getInfoStation();
         }
 
-        Component {
-            id:infoDelegate
-            Item{
-                anchors{
-                    left: parent.left
-                    right: parent.right
-                }
-                height: units.gu(4)
-                Label{
-                    id: txtLinea
-                    text: linea
-                    width: units.gu(5)
-                    fontSize: "small"
-                    anchors {
-                        top: parent.top
-                        bottom: parent.bottom
-                        left: parent.left
-                        margins: units.gu(0.5)
-                    }
-
-                }
-                Label{
-                    text: destino
-                    width: units.gu(15)
-                    fontSize: "small"
-                    anchors {
-                        top: parent.top
-                        bottom: parent.bottom
-                        left: txtLinea.right
-                        right: txtMinutos.left
-                        margins: units.gu(0.5)
-                    }
-                }
-                Label{
-                    id:txtMinutos
-                    text: minutos
-                    fontSize: "x-large"
-                    anchors {
-                        top: parent.top
-                        bottom: parent.bottom
-                        right: parent.right
-                        margins: units.gu(0.5)
-                    }
-                }
-            }
-        }
-
-        ListModel{
-            id:stationInfoModel
-            ListElement{linea:"linea"; destino:"destino"; minutos:"minutos"}
-        }
-
-    }*/
+    }
+    */
 
 }
