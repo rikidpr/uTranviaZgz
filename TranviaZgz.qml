@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.1
+import QtQuick.Layouts 1.1
 import U1db 1.0 as U1db
 import "ui"
 
@@ -14,12 +15,81 @@ MainView {
     width: units.gu(45)
     height: units.gu(78)
 
+    Page {
+        id:mainPage
+        title: "Info Zgz"
+        //head actions
+        GridLayout {
+            id: grid
+            columns: 2
+            width: parent.width/1.5
+            height: parent.height/1.5
+            anchors {
+                horizontalCenter: parent.horizontalCenter
+                verticalCenter: parent.verticalCenter
+                verticalCenterOffset: -units.gu(10)
+            }
+
+
+            Rectangle {
+                id: tranvias_circle
+                color: UbuntuColors.blue
+                width: parent.width/3
+                height: width
+                radius: width/2
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed: {
+                        pageStack.push(Qt.resolvedUrl("ui/Tranvias.qml"));
+                    }
+                }
+
+            }
+            Rectangle {
+                id: bus_circle
+                color: UbuntuColors.white
+                width: parent.width/3
+                height: width
+                radius: width/2
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed: {
+                        pageStack.push(Qt.resolvedUrl("ui/Autobuses.qml"));
+                    }
+                }
+            }
+            Rectangle {
+                id: bizi_circle
+                color: UbuntuColors.orange
+                width: parent.width/3
+                height: width
+                radius: width/2
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed: {
+                        pageStack.push(Qt.resolvedUrl("ui/Bizi.qml"));
+                    }
+                }
+            }
+            Rectangle {
+                id: favoritos_circle
+                color: UbuntuColors.warmgrey
+                width: parent.width/3
+                height: width
+                radius: width/2
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed: {
+                        pageStack.push(Qt.resolvedUrl("ui/Favorites.qml"));
+                    }
+                }
+            }
+        }
+    }
+
     PageStack {
         id: pageStack
         Component.onCompleted: push(mainPage)
-        MainPage {
-            id:mainPage
-        }
     }
 
     ////////////////////

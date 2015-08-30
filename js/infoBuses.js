@@ -1,0 +1,3 @@
+function loadDestination(idLinea) {
+
+}

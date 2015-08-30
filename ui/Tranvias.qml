@@ -65,8 +65,8 @@ Page {
     }
 */
 
-    head.actions: [
-  /*      Action {
+  /*  head.actions: [
+        Action {
             id: addFavoriteAction
 
             iconName: "add"
@@ -99,7 +99,7 @@ Page {
             text: "About"
 
             onTriggered: PopupUtils.open(aboutPopover)
-        }*/
+        }
         Action {
             id: reloadAction
             iconName: "reload"
@@ -107,7 +107,7 @@ Page {
             onTriggered: getInfoStation();
         }
 
-    ]
+    ]*/
 
     /*AboutPopover {
         id: aboutPopover
