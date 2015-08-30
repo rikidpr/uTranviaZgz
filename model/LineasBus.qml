@@ -4,6 +4,8 @@ ListModel{
     ListElement{idLinea:'21';descripcion:'OLIVER - PLAZA MOZART'}
     ListElement{idLinea:'22'; descripcion:'BOMBARDA - LAS FUENTES'}
     ListElement{idLinea:'23'; descripcion:'JOSE ATARES - PARQUE VENECIA'}
+    ListElement{idLinea:'41'; descripcion:'PUERTA DEL CARMEN - ROSALES DEL CANAL'}
+    /*
     ListElement{idLinea:'24'; descripcion:'destinos linea'}//TODO
     ListElement{idLinea:'25'; descripcion:'destinos linea'}//TODO
     ListElement{idLinea:'28'; descripcion:'destinos linea'}//TODO
@@ -19,7 +21,6 @@ ListModel{
     ListElement{idLinea:'38'; descripcion:'destinos linea'}//TODO
     ListElement{idLinea:'39'; descripcion:'destinos linea'}//TODO
     ListElement{idLinea:'40'; descripcion:'destinos linea'}//TODO
-    ListElement{idLinea:'41'; descripcion:'destinos linea'}//TODO
     ListElement{idLinea:'42'; descripcion:'destinos linea'}//TODO
     ListElement{idLinea:'43'; descripcion:'destinos linea'}
     ListElement{idLinea:'44'; descripcion:'destinos linea'}
@@ -44,4 +45,5 @@ ListModel{
     ListElement{idLinea:'N5'; descripcion:'destinos linea'}
     ListElement{idLinea:'N6'; descripcion:'destinos linea'}
     ListElement{idLinea:'N7'; descripcion:'destinos linea'}
+    */
 }

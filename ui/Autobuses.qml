@@ -1,7 +1,9 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.1
 import QtQuick.XmlListModel 2.0
+import Ubuntu.Components.ListItems 0.1
 import QtQuick.Layouts 1.1
+import Ubuntu.Components.Popups 0.1
 import "../model"
 import "../js/infoBuses.js" as IB
 
@@ -16,53 +18,33 @@ Page {
     property int destinosOpacity:0;
     property int postesOpacity:0;
 
-    function obtenerInfoEstacion (stationId){
-        stationSelector.selectedIndex = getStationIndex(stationId, stationsModel)
-    }
-
     WorkerScript {
-        id: queryInfoStationWorker
-        source: "../js/infoParada.js"
+        id: queryPosteWorker
+        source: "../js/infoBuses.js"
 
         onMessage: {
+            infoBusModel.clear();
             //reseteamos indicador y valores para recarga
-            activityIndicator.running = false;
-            NextBusLabel.text = '';
-            nextNextBusLabel.text = '';
-
-            if (messageObject.stationInfo.destinos.length >=1){
-                var infoNext = messageObject.stationInfo.destinos[0];
-                NextBusLabel.text = infoNext.minutos;
-
-                if (messageObject.stationInfo.destinos.length >=2){
-                    var infoNextNext = messageObject.stationInfo.destinos[1];
-                    nextNextBusLabel.text = infoNextNext.minutos;
-                } else {
-                    nextNextBusLabel.text = '-';
-                }
-            } else {
-                NextBusLabel.text = '-';
-                nextNextBusLabel.text = '-';
+            //activityIndicator.running = false;
+            var destinos = messageObject.posteInfo.destinos;
+            for(var i = 0; i< destinos.length ; i++){
+                console.log(destinos[i].primero);
+                infoBusModel.append({"linea": destinos[i].linea,
+                                       "destino":destinos[i].destino,
+                                       "primero":destinos[i].primero,
+                                       "segundo":destinos[i].segundo});
             }
+
         }
     }
 
-    function getInfoStation(){
-        if (stationSelector.selectedIndex > 0){
-            activityIndicator.running = true
-            var dest = destinosModel.get(destinoSelector.selectedIndex);
-            var stationsModel;
-            if (dest.destinoId === 1){
-                stationsModel = stationsModelAcademia;
-            } else {
-                stationsModel = stationsModelMagoOz;
-            }
-            if (stationSelector.selected)
-            console.log(stationSelector.selectedIndex);
-            console.log(stationsModel.get(stationSelector.selectedIndex).idParada);
-            queryInfoStationWorker.sendMessage({'stationId': stationsModel.get(stationSelector.selectedIndex).idParada})
+    /*function getInfoPoste(){
+        if (posteSelector.selectedIndex >= 0){
+            //activityIndicator.running = true
+            queryPosteWorker.sendMessage({'posteId': linea41PuertaCarmen.get(posteSelector.selectedIndex).idParada})
+            PopupUtils.open(listInfoPoste)
         }
-    }
+       }*/
 
 /*
    head.actions: [
@@ -85,7 +67,7 @@ Page {
 
 */
     Column {
-        id:column
+        id:columnCombos
         anchors.fill: parent
         spacing: units.gu(1)
 
@@ -116,6 +98,7 @@ Page {
                 } else {
                     destinosOpacity=1
                 }
+                postesOpacity = 0;
 
                 var linea= lineasModel.get(lineasSelector.selectedIndex);
                 switch(linea.idLinea){
@@ -125,11 +108,13 @@ Page {
                     destinoSelector.model=linea22Destinos; break;
                 case "23":
                     destinoSelector.model =linea23Destinos; break;
-                case "24":
+                /*case "24":
                      var linea24Dest = Qt.createComponent("../model/linea24Destinos.qml");
                     console.log(linea24Dest);
                     destinoSelector.model = linea24Dest;
-                    break;
+                    break;*/
+                case "41":
+                    destinoSelector.model = linea41Destinos; break;
                 }
             }
         }
@@ -152,136 +137,88 @@ Page {
             }
 
             onSelectedIndexChanged: {
-           /*     var idx = destinoSelector.selectedIndex;
-                switch (idx){
-                case 0:
-                    stationSelector.model = null;
-                    break;
-                case 1:
-                    stationSelector.model = stationsModelAcademia;
-                    break;
-                case 2:
-                    stationSelector.model = stationsModelMagoOz;
+                var destino = "";
+                var linea= lineasModel.get(lineasSelector.selectedIndex);
+                switch(linea.idLinea){
+                case "21":
+                    destinoSelector.model =linea21Destinos; break;
+                case "22":
+                    destinoSelector.model=linea22Destinos; break;
+                case "23":
+                    destinoSelector.model =linea23Destinos; break;
+                /*case "24":
+                     var linea24Dest = Qt.createComponent("../model/linea24Destinos.qml");
+                    console.log(linea24Dest);
+                    destinoSelector.model = linea24Dest;
+                    break;*/
+                case "41":
+                    destinoSelector.model = linea41Destinos;
+                    destino = linea41Destinos.get(destinoSelector.selectedIndex);
                     break;
                 }
-                */
+                console.log(destinoSelector.selectedIndex+"-"+destino);
+                if (destino.idDestino === "ROSALESDELCANAL") {
+                    posteSelector.model = linea41RosalesCanal;
+                    postesOpacity =1;
+                } else {
+                    posteSelector.model = linea41PuertaCarmen;
+                    postesOpacity =1;
+                }
+
             }
         }
 
-    }
-/*
-    Row {
-        id: selectStationRow
         Label {
-            id: selectStationLabel
-            text: "<b>Select Station:</b>"
-        }
-
-        ActivityIndicator {
-            id: activityIndicator
-
-            anchors.right: parent.right
-
-            y: selectStationLabel.y - 6
-        }
-
-        anchors {
-            top: destinoRow.bottom
-            left: parent.left
-            right: parent.right
-
-            topMargin: units.gu(2)
-            margins: units.gu(2)
-        }
-    }
-    Row {
-        id: stationRow
-
-        anchors {
-            top: selectStationRow.bottom
-            left: parent.left
-            right: parent.right
-
-            topMargin: units.gu(4)
-            margins: units.gu(2)
+            id: selectPosteLabel
+            text: "<b>Seleciona Poste:</b>"
+            opacity: postesOpacity
         }
 
         OptionSelector {
-            id: stationSelector
+            id: posteSelector
             containerHeight: units.gu(21.5)
             expanded: false
+            opacity: postesOpacity
             //model: stationsModel
 
             delegate: OptionSelectorDelegate {
-                text: name
-                subText: description
+                text: nombre
+                subText: idParada
             }
 
-            onSelectedIndexChanged: getInfoStation();
+            onSelectedIndexChanged: {
+                var posteId = linea41PuertaCarmen.get(posteSelector.selectedIndex).idParada;
+                getInfoPoste(posteId);
+            }//getInfoPoste();
         }
+
+
     }
 
-    Row {
-        id: availabilityRow
 
-        spacing: 5
-
-        anchors {
-            left: parent.left
-            right: parent.right
-            top: stationRow.bottom
-            topMargin: units.gu(2)
-
-            margins: units.gu(2)
-        }
-        UbuntuShape{
-            id:nextBus
-            width: parent.width / 2
-            height: units.gu(13)
-            radius: "medium"
-            color: nextColor
-
-            Label {
-                text: "  Primero"
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    leftMargin: units.gu(1)
-                }
-                color: "white"
+   /*Component {
+        id: resultsDelegate
+        Row{
+            anchors.fill: parent
+            Label{
+                 //text: linea
+                 text:idParada
+                 width: units.gu(8)
             }
-            Label {
-                id: nextBusLabel
-                text: ""
-                color: "white"
-                fontSize: "x-large"
-                anchors.centerIn: parent
+            Label{
+                 //text: destino
+                text:idDestino
+                 width: units.gu(8)
             }
-        }
-        UbuntuShape {
-            id: nextNextBus
-            width: parent.width / 2
-            height: units.gu(13)
-            radius: "medium"
-            color: nextNextColor
-            Label {
-                text: "Segundo"
-
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                    leftMargin: units.gu(1)
-                }
-                color: "white"
+            Label{
+                 //text: primero
+                text:nombre
+                 width: units.gu(8)
             }
-
-            Label {
-                id: nextNextBusLabel
-                text: ""
-                color: "white"
-                fontSize: "x-large"
-                anchors.centerIn: parent
-            }
+            //Label{
+            //     text: segundo
+            //     width: units.gu(8)
+            //}
         }
     }
 */
@@ -290,11 +227,24 @@ Page {
     Linea21Destinos{
         id:linea21Destinos
     }
+    Linea21OLIVER{
+        id:linea21Oliver
+    }
+
     Linea22Destinos{
         id:linea22Destinos
     }
     Linea23Destinos{
         id:linea23Destinos
+    }
+    Linea41Destinos{
+        id:linea41Destinos
+    }
+    Linea41PUERTACARMEN{
+        id:linea41PuertaCarmen
+    }
+    Linea41ROSALESDELCANAL{
+        id:linea41RosalesCanal
     }
 }
 

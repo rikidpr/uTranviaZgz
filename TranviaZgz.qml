@@ -95,6 +95,12 @@ MainView {
     ////////////////////
     ///  javascript  ///
     ////////////////////
+
+    function getInfoPoste(posteId){
+        console.log("vamos a por la info del poste "+posteId);
+        pageStack.push(Qt.resolvedUrl("ui/InfoPosteBus.qml"),{"posteId":posteId});
+    }
+
     function getParadaIndex(stationId, stationsModel) {
         for (var i = 0; i < stationsModel.count; i++) {
             if (stationId === stationsModel.get(i).id)
