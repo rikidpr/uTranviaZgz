@@ -33,8 +33,8 @@ MainView {
 
             Rectangle {
                 id: tranvias_circle
-                color: UbuntuColors.blue
-                width: parent.width/3
+                color: UbuntuColors.white
+                width: parent.width/2
                 height: width
                 radius: width/2
 
@@ -47,7 +47,7 @@ MainView {
                 Icon {
                     id: tramIcon
                     source: "img/tram.png"
-                    width: parent.width/2
+                    width: parent.width/1.5
                     height: width
                     anchors.centerIn: parent
                 }
@@ -56,7 +56,7 @@ MainView {
             Rectangle {
                 id: bus_circle
                 color: UbuntuColors.white
-                width: parent.width/3
+                width: parent.width/2
                 height: width
                 radius: width/2
                 MouseArea {
@@ -67,16 +67,16 @@ MainView {
                 }
                 Icon {
                     id: busIcon
-                    source: "img/bus.jpg"
-                    width: parent.width/2
+                    source: "img/bus.jpeg"
+                    width: parent.width/1.5
                     height: width
                     anchors.centerIn: parent
                 }
             }
             Rectangle {
                 id: bizi_circle
-                color: UbuntuColors.orange
-                width: parent.width/3
+                color: UbuntuColors.white
+                width: parent.width/2
                 height: width
                 radius: width/2
                 MouseArea {
@@ -87,16 +87,16 @@ MainView {
                 }
                 Icon {
                     id: biziIcon
-                    source: "img/bizi.jpg"
-                    width: parent.width/2
+                    source: "img/bizi.png"
+                    width: parent.width/1.5
                     height: width
                     anchors.centerIn: parent
                 }
             }
             Rectangle {
                 id: favoritos_circle
-                color: UbuntuColors.warmgrey
-                width: parent.width/3
+                color: UbuntuColors.white
+                width: parent.width/2
                 height: width
                 radius: width/2
                 MouseArea {
@@ -108,7 +108,7 @@ MainView {
                 Icon {
                     id: favoriteIcon
                     name: "favorite-unselected"
-                    width: parent.width/2
+                    width: parent.width/1.5
                     height: width
                     anchors.centerIn: parent
                 }
