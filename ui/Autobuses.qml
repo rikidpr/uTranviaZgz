@@ -116,10 +116,11 @@ Page {
             }
 
             onSelectedIndexChanged: {
-                var destino = destinoSelector.model.get(lineasSelector.selectedIndex);
+                var destino = destinoSelector.model.get(destinoSelector.selectedIndex);
                 var modelFile = "../model/Linea"+destino.idLinea+destino.idDestino+".qml";
                 console.log(modelFile);
                 posteSelector.model = IB.getComponent(modelFile);
+                postesOpacity = 1;
             }
         }
 
