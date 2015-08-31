@@ -37,11 +37,19 @@ MainView {
                 width: parent.width/3
                 height: width
                 radius: width/2
+
                 MouseArea {
                     anchors.fill: parent
                     onPressed: {
                         pageStack.push(Qt.resolvedUrl("ui/Tranvias.qml"));
                     }
+                }
+                Icon {
+                    id: tramIcon
+                    source: "img/tram.png"
+                    width: parent.width/2
+                    height: width
+                    anchors.centerIn: parent
                 }
 
             }
@@ -57,6 +65,13 @@ MainView {
                         pageStack.push(Qt.resolvedUrl("ui/Autobuses.qml"));
                     }
                 }
+                Icon {
+                    id: busIcon
+                    source: "img/bus.jpg"
+                    width: parent.width/2
+                    height: width
+                    anchors.centerIn: parent
+                }
             }
             Rectangle {
                 id: bizi_circle
@@ -70,6 +85,13 @@ MainView {
                         pageStack.push(Qt.resolvedUrl("ui/Bizi.qml"));
                     }
                 }
+                Icon {
+                    id: biziIcon
+                    source: "img/bizi.jpg"
+                    width: parent.width/2
+                    height: width
+                    anchors.centerIn: parent
+                }
             }
             Rectangle {
                 id: favoritos_circle
@@ -82,6 +104,13 @@ MainView {
                     onPressed: {
                         pageStack.push(Qt.resolvedUrl("ui/Favorites.qml"));
                     }
+                }
+                Icon {
+                    id: favoriteIcon
+                    name: "favorite-unselected"
+                    width: parent.width/2
+                    height: width
+                    anchors.centerIn: parent
                 }
             }
         }
