@@ -120,6 +120,7 @@ MainView {
 		case "BUS":
 			pageStack.push(Qt.resolvedUrl("ui/InfoPosteBus.qml"), {"posteId":stationId});
 			break;
+        }
     }
 
 	/**
@@ -171,16 +172,14 @@ MainView {
    ////////////////////
    // U1DB backend to record the last-picked station. Makes it faster for users to get information for their usual station.
     U1db.Database {
-        id: infozgzAppDB;
+        id: infozgzAppDB
         path: "UInfoZgzApp.u1db"
     }
 
     U1db.Index {
        database: infozgzAppDB
        id: favIdx
-       /* You have to specify in the index all fields you want to retrieve
-          The query should return the whole document, not just indexed fields
-          https://bugs.launchpad.net/u1db-qt/+bug/1271973 */
+
        expression: ["fav.type", "fav.stationId", "fav.name"]
    }
    U1db.Query {
