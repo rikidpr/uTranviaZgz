@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'755';idDestino:'BOMBARDA';nombre:' ROD REBOLLEDO /FRAY LUIS URBANO ';}
 	ListElement{idParada:'754';idDestino:'BOMBARDA';nombre:' ROD REBOLLEDO 33 ';}
 	ListElement{idParada:'753';idDestino:'BOMBARDA';nombre:' ROD REBOLLEDO 7 ';}

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'3519';idDestino:'BOMBARDA';nombre:' AV REAL ZARAGOZA / FRENTE Num  63 ';}
 	ListElement{idParada:'248';idDestino:'BOMBARDA';nombre:' AV SANTA ISABEL 141 ';}
 	ListElement{idParada:'3520';idDestino:'BOMBARDA';nombre:' AV SANTA ISABEL, 97 / PLAZA ';}

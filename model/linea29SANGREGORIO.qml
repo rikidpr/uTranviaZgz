@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'284';idDestino:'SANGREGORIO';nombre:' CAMINO LAS TORRES 10 ';}
 	ListElement{idParada:'889';idDestino:'SANGREGORIO';nombre:' CONCEPCIÓN 1 ';}
 	ListElement{idParada:'744';idDestino:'SANGREGORIO';nombre:' PLZ SAN MIGUEL ';}

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'300';idDestino:'PUERTADELCARMEN';nombre:' CAMINO DEL PILÓN / IGLESIA ';}
 	ListElement{idParada:'299';idDestino:'PUERTADELCARMEN';nombre:' CAMINO DEL PILÓN 131 ';}
 	ListElement{idParada:'301';idDestino:'PUERTADELCARMEN';nombre:' CAMINO DEL PILÓN S / N ';}

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'911';idDestino:'SANGREGORIO';nombre:' BETORE BERGUA 1 ';}
 	ListElement{idParada:'508';idDestino:'SANGREGORIO';nombre:' IGNACIO ZAPATA/RUSTE ';}
 	ListElement{idParada:'451';idDestino:'SANGREGORIO';nombre:' FELISA GALE 7 ';}

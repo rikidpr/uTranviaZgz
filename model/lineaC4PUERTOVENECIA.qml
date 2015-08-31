@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1040';idDestino:'PUERTOVENECIA';nombre:' PLZ CANTERAS ';}
 	ListElement{idParada:'464';idDestino:'PUERTOVENECIA';nombre:' FRAY J. GARCÉS 62 ';}
 	ListElement{idParada:'860';idDestino:'PUERTOVENECIA';nombre:' VILLA DE ANSO / ANTIGUA PRISIÓN ';}

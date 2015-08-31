@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1000';idDestino:'MIRALBUENO';nombre:' MANUEL LASALA ';}
 	ListElement{idParada:'863';idDestino:'MIRALBUENO';nombre:' VIOLANTE DE HUNGRÍA / CENTRO DEPORTIVO ';}
 	ListElement{idParada:'325';idDestino:'MIRALBUENO';nombre:' CONDES ARAGÓN 16 ';}

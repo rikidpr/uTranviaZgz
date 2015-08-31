@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1228';idDestino:'SANJOSE';nombre:' CONSTITUCIÓN / PATIO DE LA INFANTA ';}
 	ListElement{idParada:'633';idDestino:'SANJOSE';nombre:' PS CONSTITUCIÓN 16 ';}
 	ListElement{idParada:'1258';idDestino:'SANJOSE';nombre:' PS DE LA MINA ENFRENTE COLEGIO ';}

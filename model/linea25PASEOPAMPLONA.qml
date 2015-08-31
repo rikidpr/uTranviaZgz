@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'278';idDestino:'PASEOPAMPLONA';nombre:' 14 DE SEPTIEMBRE 29 ';}
 	ListElement{idParada:'26';idDestino:'PASEOPAMPLONA';nombre:' AUTONOMÍA DE ARAGÓN / PISCINAS ';}
 	ListElement{idParada:'352';idDestino:'PASEOPAMPLONA';nombre:' RAMÍREZ ORELLANO 82 ';}

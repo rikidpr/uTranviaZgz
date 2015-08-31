@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'121';idDestino:'ARCOSUR-TRANVIA';nombre:' ILUSTRACIÓN / CENTRO COMERCIAL ';}
 	ListElement{idParada:'1184';idDestino:'ARCOSUR-TRANVIA';nombre:' CANTANDO BAJO LA LLUVIA / TRANVÍA ';}
 	ListElement{idParada:'1215';idDestino:'ARCOSUR-TRANVIA';nombre:' SALOMON Y LA REINA DE SABA ';}

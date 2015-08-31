@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'821';idDestino:'COCHERAAUZSA';nombre:' VÍA HISPANIDAD 64 ';}
 	ListElement{idParada:'823';idDestino:'COCHERAAUZSA';nombre:' VÍA HISPANIDAD 73 ';}
 	ListElement{idParada:'439';idDestino:'COCHERAAUZSA';nombre:' DUQUESA VILLAHERMOSA 155 ';}

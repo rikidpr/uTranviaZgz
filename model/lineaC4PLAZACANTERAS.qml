@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1043';idDestino:'PLAZACANTERAS';nombre:' PUERTO VENECIA / TEATRO MALIBRAN ';}
 	ListElement{idParada:'1171';idDestino:'PLAZACANTERAS';nombre:' TEATRO MALIBRAN 11 ';}
 	ListElement{idParada:'1210';idDestino:'PLAZACANTERAS';nombre:' ISLA DE MURANO / TRAVESIA JARDINES REALES ';}

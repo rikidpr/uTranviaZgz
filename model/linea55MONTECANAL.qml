@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1182';idDestino:'MONTECANAL';nombre:' PLAZA BÁMBOLA ';}
 	ListElement{idParada:'1251';idDestino:'MONTECANAL';nombre:' Belle Epoque 27 ';}
 	ListElement{idParada:'1026';idDestino:'MONTECANAL';nombre:' Belle Epoque / Colegio ';}

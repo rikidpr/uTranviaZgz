@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'844';idDestino:'CASABLANCA';nombre:' VÍA IBÉRICA 38 / ARGUALAS ';}
 	ListElement{idParada:'907';idDestino:'CASABLANCA';nombre:' ARGUALAS 20 ';}
 	ListElement{idParada:'908';idDestino:'CASABLANCA';nombre:' MARCELINO ALVAREZ 55 ';}

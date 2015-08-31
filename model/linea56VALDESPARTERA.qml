@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1175';idDestino:'VALDESPARTERA';nombre:' CIUDADANO KANE / CENTRO SALUD ';}
 	ListElement{idParada:'1229';idDestino:'VALDESPARTERA';nombre:' DESAYUNO CON DIAMANTES 35 ';}
 	ListElement{idParada:'1230';idDestino:'VALDESPARTERA';nombre:' DESAYUNO CON DIAMANTES 19 ';}

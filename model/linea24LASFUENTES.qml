@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'806';idDestino:'LASFUENTES';nombre:' TULIPÁN 67 ';}
 	ListElement{idParada:'805';idDestino:'LASFUENTES';nombre:' TULIPÁN 27 ';}
 	ListElement{idParada:'3539';idDestino:'LASFUENTES';nombre:' VÍA LÁCTEA / TORRE PAJARITOS ';}

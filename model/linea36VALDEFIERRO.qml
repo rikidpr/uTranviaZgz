@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'15';idDestino:'VALDEFIERRO';nombre:' CAMINO JUSLIBOL ';}
 	ListElement{idParada:'3510';idDestino:'VALDEFIERRO';nombre:' SAN JUAN DE LA PEÑA 155 / JOSÉ LUIS LACRUS BERDEJO ';}
 	ListElement{idParada:'775';idDestino:'VALDEFIERRO';nombre:' SAN JUAN DE LA PEÑA 123 ';}

@@ -99,23 +99,10 @@ Page {
                     destinosOpacity=1
                 }
                 postesOpacity = 0;
-
                 var linea= lineasModel.get(lineasSelector.selectedIndex);
-                switch(linea.idLinea){
-                case "21":
-                    destinoSelector.model =linea21Destinos; break;
-                case "22":
-                    destinoSelector.model=linea22Destinos; break;
-                case "23":
-                    destinoSelector.model =linea23Destinos; break;
-                /*case "24":
-                     var linea24Dest = Qt.createComponent("../model/linea24Destinos.qml");
-                    console.log(linea24Dest);
-                    destinoSelector.model = linea24Dest;
-                    break;*/
-                case "41":
-                    destinoSelector.model = linea41Destinos; break;
-                }
+                var modelFile = "../model/Linea"+linea.idLinea+"Destinos.qml";
+                console.log(modelFile);
+                destinoSelector.model = Qt.createComponent(modelFile);
             }
         }
 
@@ -137,34 +124,10 @@ Page {
             }
 
             onSelectedIndexChanged: {
-                var destino = "";
-                var linea= lineasModel.get(lineasSelector.selectedIndex);
-                switch(linea.idLinea){
-                case "21":
-                    destinoSelector.model =linea21Destinos; break;
-                case "22":
-                    destinoSelector.model=linea22Destinos; break;
-                case "23":
-                    destinoSelector.model =linea23Destinos; break;
-                /*case "24":
-                     var linea24Dest = Qt.createComponent("../model/linea24Destinos.qml");
-                    console.log(linea24Dest);
-                    destinoSelector.model = linea24Dest;
-                    break;*/
-                case "41":
-                    destinoSelector.model = linea41Destinos;
-                    destino = linea41Destinos.get(destinoSelector.selectedIndex);
-                    break;
-                }
-                console.log(destinoSelector.selectedIndex+"-"+destino);
-                if (destino.idDestino === "ROSALESDELCANAL") {
-                    posteSelector.model = linea41RosalesCanal;
-                    postesOpacity =1;
-                } else {
-                    posteSelector.model = linea41PuertaCarmen;
-                    postesOpacity =1;
-                }
-
+                var destino = destinoSelector.model.get(lineasSelector.selectedIndex);
+                var modelFile = "../model/Linea"+destino.idLinea+destino.idDestino+".qml";
+                console.log(modelFile);
+                posteSelector.model = Qt.createComponent(modelFile);
             }
         }
 
@@ -187,8 +150,10 @@ Page {
             }
 
             onSelectedIndexChanged: {
-                var posteId = linea41PuertaCarmen.get(posteSelector.selectedIndex).idParada;
-                getInfoPoste(posteId);
+                if (posteSelector.selectedIndex > 0){
+                    var posteId = posteSelector.model.get(posteSelector.selectedIndex).idParada;
+                    getInfoPoste(posteId);
+                }
             }//getInfoPoste();
         }
 
@@ -196,55 +161,5 @@ Page {
     }
 
 
-   /*Component {
-        id: resultsDelegate
-        Row{
-            anchors.fill: parent
-            Label{
-                 //text: linea
-                 text:idParada
-                 width: units.gu(8)
-            }
-            Label{
-                 //text: destino
-                text:idDestino
-                 width: units.gu(8)
-            }
-            Label{
-                 //text: primero
-                text:nombre
-                 width: units.gu(8)
-            }
-            //Label{
-            //     text: segundo
-            //     width: units.gu(8)
-            //}
-        }
-    }
-*/
-
-    //models
-    Linea21Destinos{
-        id:linea21Destinos
-    }
-    Linea21OLIVER{
-        id:linea21Oliver
-    }
-
-    Linea22Destinos{
-        id:linea22Destinos
-    }
-    Linea23Destinos{
-        id:linea23Destinos
-    }
-    Linea41Destinos{
-        id:linea41Destinos
-    }
-    Linea41PUERTACARMEN{
-        id:linea41PuertaCarmen
-    }
-    Linea41ROSALESDELCANAL{
-        id:linea41RosalesCanal
-    }
 }
 

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1253';idDestino:'PARQUEVENECIA';nombre:' AVENIDA DE RANILLAS ENFRENTE JUZGADOS ';}
 	ListElement{idParada:'1254';idDestino:'PARQUEVENECIA';nombre:' AVENIDA DE RANILLAS / JUZGADOS ';}
 	ListElement{idParada:'1255';idDestino:'PARQUEVENECIA';nombre:' AVENIDA DE RANILLAS S/N ';}

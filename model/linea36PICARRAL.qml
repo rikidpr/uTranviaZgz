@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'607';idDestino:'PICARRAL';nombre:' MONTE PERDIDO / MARÍA DOMÍNGUEZ REMÓN ';}
 	ListElement{idParada:'3535';idDestino:'PICARRAL';nombre:' TULIPÁN 79 ';}
 	ListElement{idParada:'805';idDestino:'PICARRAL';nombre:' TULIPÁN 27 ';}

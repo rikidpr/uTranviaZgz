@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'732';idDestino:'MARIAZAMBRANO';nombre:' PLAZA MAYOR ';}
 	ListElement{idParada:'873';idDestino:'MARIAZAMBRANO';nombre:' CALLE ZARAGOZA /FRENTE PZA ESCUELAS ';}
 	ListElement{idParada:'872';idDestino:'MARIAZAMBRANO';nombre:' CALLE ZARAGOZA / BASCULA ';}

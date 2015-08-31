@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'209';idDestino:'PARQUEGOYA';nombre:' SAINZ DE VARANDA ';}
 	ListElement{idParada:'543';idDestino:'PARQUEGOYA';nombre:' J. PABLO II 60 ';}
 	ListElement{idParada:'623';idDestino:'PARQUEGOYA';nombre:' PEDRO III / IGLESIA SANTA MÓNICA ';}

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1120';idDestino:'FUENTEJUNQUERA';nombre:' FUENTE DE LA JUNQUERA / PARQUE ';}
 	ListElement{idParada:'1121';idDestino:'FUENTEJUNQUERA';nombre:' FUENTE DE LA JUNQUERA / COLEGIO ';}
 	ListElement{idParada:'671';idDestino:'FUENTEJUNQUERA';nombre:' PS REYES DE ARAGÓN 14 ';}

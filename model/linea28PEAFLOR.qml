@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1237';idDestino:'PEAFLOR';nombre:' COSO 118 ';}
 	ListElement{idParada:'340';idDestino:'PEAFLOR';nombre:' COSO 188 ';}
 	ListElement{idParada:'3525';idDestino:'PEAFLOR';nombre:' AV PT. PILAR / PT. HIERRO ';}

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'765';idDestino:'PLAZAMOZART';nombre:' S. ALBERTO MAGNO / AMBULATORIO ';}
 	ListElement{idParada:'11';idDestino:'PLAZAMOZART';nombre:' A. LEYVA 82 ';}
 	ListElement{idParada:'3532';idDestino:'PLAZAMOZART';nombre:' A. LEYVA / ESCUELAS ';}

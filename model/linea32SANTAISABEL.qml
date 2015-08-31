@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'857';idDestino:'SANTAISABEL';nombre:' VICENTE BLANCO / C.C.AUGUSTA ';}
 	ListElement{idParada:'559';idDestino:'SANTAISABEL';nombre:' MANUEL DE FALLA 4 ';}
 	ListElement{idParada:'10';idDestino:'SANTAISABEL';nombre:' M.LABORDETA ';}

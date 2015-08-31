@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1036';idDestino:'PUERTACARMEN';nombre:' J. SEBASTIAN BACH / CLINICA MONTECANAL ';}
 	ListElement{idParada:'1037';idDestino:'PUERTACARMEN';nombre:' JUAN SEBASTIAN BACH, 65 ';}
 	ListElement{idParada:'1038';idDestino:'PUERTACARMEN';nombre:' JUAN SEBASTIAN BACH 53 ';}

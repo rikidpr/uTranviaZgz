@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'447';idDestino:'PLAZAARAGON';nombre:' CEUTA ';}
 	ListElement{idParada:'1164';idDestino:'PLAZAARAGON';nombre:' CEUTA / COLEGIO ';}
 	ListElement{idParada:'582';idDestino:'PLAZAARAGON';nombre:' MELILLA / J. SOROLLA ';}

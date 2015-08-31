@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'645';idDestino:'ACTURReyFernando';nombre:' ANDADOR DE PESCARA / P. VIDAL ';}
 	ListElement{idParada:'545';idDestino:'ACTURReyFernando';nombre:' LA SALUD/SAN VIATOR ';}
 	ListElement{idParada:'758';idDestino:'ACTURReyFernando';nombre:' VILLA DE PAU 19 ';}

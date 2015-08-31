@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'82';idDestino:'MIRALBUENO';nombre:' AV. CESAR AUGUSTO 4 ';}
 	ListElement{idParada:'93';idDestino:'MIRALBUENO';nombre:' AV CESAR AUGUSTO / MORERÍA ';}
 	ListElement{idParada:'315';idDestino:'MIRALBUENO';nombre:' C. ARANDA 2 / ESCUELAS PIAS ';}

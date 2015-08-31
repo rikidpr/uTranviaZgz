@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'196';idDestino:'PINARESVENECIA';nombre:' MADRE TERESA DE CALCUTA 5 ';}
 	ListElement{idParada:'619';idDestino:'PINARESVENECIA';nombre:' SIGÜES / PARQUE ';}
 	ListElement{idParada:'9';idDestino:'PINARESVENECIA';nombre:' ANDRÉS VICENTE 25 ';}

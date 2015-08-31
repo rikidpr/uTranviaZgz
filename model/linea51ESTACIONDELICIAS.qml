@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'109';idDestino:'ESTACIONDELICIAS';nombre:' PRÍNCIPE FELIPE ';}
 	ListElement{idParada:'100';idDestino:'ESTACIONDELICIAS';nombre:' C. ALIERTA 117 ';}
 	ListElement{idParada:'99';idDestino:'ESTACIONDELICIAS';nombre:' C. ALIERTA 95 ';}

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1226';idDestino:'JUSLIBOL';nombre:' PROLONGACIÓN JORGE GUILLEN ';}
 	ListElement{idParada:'561';idDestino:'JUSLIBOL';nombre:' M ZAMBRANO / PABLO NERUDA ';}
 	ListElement{idParada:'3076';idDestino:'JUSLIBOL';nombre:' MARIA ZAMBRANO 32 ';}

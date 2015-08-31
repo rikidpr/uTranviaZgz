@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1260';idDestino:'ACTURReyFernando';nombre:' CAMINO DE CABALDOS CERCA ESTACIÓN MIRAFLORES ';}
 	ListElement{idParada:'1138';idDestino:'ACTURReyFernando';nombre:' PRINCIPADO DE MOREA ';}
 	ListElement{idParada:'1131';idDestino:'ACTURReyFernando';nombre:' DIEGO ESPES ';}

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1079';idDestino:'ROSALESDELCANAL';nombre:' HERNÁN CORTÉS 9 ';}
 	ListElement{idParada:'262';idDestino:'ROSALESDELCANAL';nombre:' AV VALENCIA 8 ';}
 	ListElement{idParada:'263';idDestino:'ROSALESDELCANAL';nombre:' AV VALENCIA 38 ';}

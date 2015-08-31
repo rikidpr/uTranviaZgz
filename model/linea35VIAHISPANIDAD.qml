@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'993';idDestino:'VIAHISPANIDAD';nombre:' LA FRAGUA /PARQUE ';}
 	ListElement{idParada:'986';idDestino:'VIAHISPANIDAD';nombre:' LA FRAGUA 15 ';}
 	ListElement{idParada:'3507';idDestino:'VIAHISPANIDAD';nombre:' MAJAS DE GOYA 15 ';}

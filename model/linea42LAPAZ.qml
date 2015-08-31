@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1224';idDestino:'LAPAZ';nombre:' VALLE DE BROTO / INTERCAMBIADOR ';}
 	ListElement{idParada:'817';idDestino:'LAPAZ';nombre:' VALLE DE BROTO / V. WOOLF ';}
 	ListElement{idParada:'813';idDestino:'LAPAZ';nombre:' VALLE DE BROTO / RANILLAS ';}

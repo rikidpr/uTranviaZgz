@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'617';idDestino:'ESTACIONDELICIAS';nombre:' PARQUE ATRACCIONES ';}
 	ListElement{idParada:'650';idDestino:'ESTACIONDELICIAS';nombre:' PS DUQUE DE ALBA / VELÓDROMO ';}
 	ListElement{idParada:'888';idDestino:'ESTACIONDELICIAS';nombre:' FRAY JULIAN GARCÉS /CEMENTERIO ';}

@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'270';idDestino:'PINARESDEVENECIA';nombre:' BETORE BERGUA 1 ';}
 	ListElement{idParada:'267';idDestino:'PINARESDEVENECIA';nombre:' BALBINO ORENSANZ 29 ';}
 	ListElement{idParada:'266';idDestino:'PINARESDEVENECIA';nombre:' BALBINO ORENSANZ 7 ';}

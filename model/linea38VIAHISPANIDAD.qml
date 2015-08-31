@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'8000';idDestino:'VIAHISPANIDAD';nombre:' COCHERA tuzsa- ';}
 	ListElement{idParada:'599';idDestino:'VIAHISPANIDAD';nombre:' MIGUEL SERVET 199 ';}
 	ListElement{idParada:'3018';idDestino:'VIAHISPANIDAD';nombre:' C. ALIERTA / 3er CINTURÓN ';}

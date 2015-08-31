@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'546';idDestino:'COSO';nombre:' AV PEÑAFLOR / TERMINAL ';}
 	ListElement{idParada:'1013';idDestino:'COSO';nombre:' AV PEÑAFLOR 109 ';}
 	ListElement{idParada:'427';idDestino:'COSO';nombre:' AV PEÑAFLOR 79 ';}

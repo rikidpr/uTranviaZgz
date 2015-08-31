@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'651';idDestino:'VALDEFIERRO';nombre:' Ps ECHEGARAY / S. MINGUIJÓN ';}
 	ListElement{idParada:'470';idDestino:'VALDEFIERRO';nombre:' FRAY L. URBANO 15 ';}
 	ListElement{idParada:'469';idDestino:'VALDEFIERRO';nombre:' FRAY L. URBANO 3 ';}

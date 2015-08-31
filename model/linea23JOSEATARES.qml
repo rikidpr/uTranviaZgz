@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1206';idDestino:'JOSEATARES';nombre:' CALLE CARLO SCARPA ';}
 	ListElement{idParada:'1207';idDestino:'JOSEATARES';nombre:' AV PUENTE DE LOS SUSPIROS ';}
 	ListElement{idParada:'1163';idDestino:'JOSEATARES';nombre:' PROLONGACIÓN C/ ZAFIRO / POLICÍA LOCAL ';}

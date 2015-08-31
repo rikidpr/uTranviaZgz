@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'1184';idDestino:'ROSALESDELCANAL';nombre:' CANTANDO BAJO LA LLUVIA / TRANVÍA ';}
 	ListElement{idParada:'1189';idDestino:'ROSALESDELCANAL';nombre:' UN AMÉRICANO EN PARIS / TRANVÍA ';}
 	ListElement{idParada:'1139';idDestino:'ROSALESDELCANAL';nombre:' LA DILIGENCIA ';}

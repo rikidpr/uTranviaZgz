@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'858';idDestino:'DELICIAS';nombre:' VILLA DE ANSO ';}
 	ListElement{idParada:'46';idDestino:'DELICIAS';nombre:' AV AMÉRICA 69 ';}
 	ListElement{idParada:'44';idDestino:'DELICIAS';nombre:' AV AMÉRICA 27 ';}

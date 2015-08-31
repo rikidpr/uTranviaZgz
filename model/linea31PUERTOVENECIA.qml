@@ -1,5 +1,6 @@
 import QtQuick 2.0
 ListModel{
+	ListElement{idParada:'...';idDestino:'...';nombre:'Seleccione un poste';}
 	ListElement{idParada:'51';idDestino:'PUERTOVENECIA';nombre:' AV CLAVE / ESTACIÓN ';}
 	ListElement{idParada:'3071';idDestino:'PUERTOVENECIA';nombre:' AV MADRID / ALJAFERÍA ';}
 	ListElement{idParada:'679';idDestino:'PUERTOVENECIA';nombre:' PS M. AGUSTÍN 67 ';}
