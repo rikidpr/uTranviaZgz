@@ -38,14 +38,6 @@ Page {
         }
     }
 
-    /*function getInfoPoste(){
-        if (posteSelector.selectedIndex >= 0){
-            //activityIndicator.running = true
-            queryPosteWorker.sendMessage({'posteId': linea41PuertaCarmen.get(posteSelector.selectedIndex).idParada})
-            PopupUtils.open(listInfoPoste)
-        }
-       }*/
-
 /*
    head.actions: [
         Action {
@@ -102,7 +94,7 @@ Page {
                 var linea= lineasModel.get(lineasSelector.selectedIndex);
                 var modelFile = "../model/Linea"+linea.idLinea+"Destinos.qml";
                 console.log(modelFile);
-                destinoSelector.model = Qt.createComponent(modelFile);
+                destinoSelector.model = IB.getComponent(modelFile);
             }
         }
 
@@ -127,7 +119,7 @@ Page {
                 var destino = destinoSelector.model.get(lineasSelector.selectedIndex);
                 var modelFile = "../model/Linea"+destino.idLinea+destino.idDestino+".qml";
                 console.log(modelFile);
-                posteSelector.model = Qt.createComponent(modelFile);
+                posteSelector.model = IB.getComponent(modelFile);
             }
         }
 
@@ -154,7 +146,7 @@ Page {
                     var posteId = posteSelector.model.get(posteSelector.selectedIndex).idParada;
                     getInfoPoste(posteId);
                 }
-            }//getInfoPoste();
+            }
         }
 
 

@@ -19,3 +19,20 @@ WorkerScript.onMessage = function(sentMessage){
         }
     }
 }
+
+function getComponent(componentPath){
+    var component = Qt.createComponent(componentPath);
+    if( component.status !== Component.Ready )
+    {
+        console.log(component.status);
+        if( component.status === Component.Error )
+            console.debug("Error:"+ component.errorString() );
+        return;
+    } else {
+        console.log("parece ok");
+        var elmodelico = component.createObject(tranviaZgzPage);
+        return elmodelico;
+    }
+
+}
+
