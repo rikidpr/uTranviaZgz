@@ -25,6 +25,7 @@ Page{
                 }
                 width: parent.height
                 name:"favorite-unselected"
+				text:contents.type
             }
             Label{
                 anchors {
@@ -46,8 +47,7 @@ Page{
                 ]
             }
             onClicked: {
-                setFavorite(contents.stationId)
-                pageStack.pop();
+                setFavorite(contents.type, contents.stationId)
             }
         }
     }

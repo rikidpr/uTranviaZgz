@@ -11,6 +11,12 @@ Page {
     property color nextNextColor: "#EEAAAA"
     property int preSelectedStationId:0
 
+    Component.onCompleted: {
+		if (preSelectedStationId > 0){
+			queryInfoStationWorker.sendMessage({"stationId": preSelectedStationId})
+		}
+    }
+
     function obtenerInfoEstacion (stationId){
         stationSelector.selectedIndex = getStationIndex(stationId, stationsModel)
     }

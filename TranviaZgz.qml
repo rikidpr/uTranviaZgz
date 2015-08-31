@@ -109,21 +109,32 @@ MainView {
         return 0;
     }
 
-    function setFavorite(stationId){
-        mainPage.preSelectedStationId= stationId;
-        mainPage.obtenerInfoEstacion(stationId)
+    function setFavorite(type, stationId){
+		switch(type){
+		case "BIZI":
+			pageStack.push(Qt.resolvedUrl("ui/Bizi.qml"), {"stationId":stationId});
+			break;
+		case "TRAM":
+			pageStack.push(Qt.resolvedUrl("ui/Tranvias.qml"), {"stationId":stationId});
+			break;
+		case "BUS":
+			pageStack.push(Qt.resolvedUrl("ui/InfoPosteBus.qml"), {"posteId":stationId});
+			break;
     }
 
-    function addToFavorites(stationId, name){
-        if (typeof stationId !== "undefined" && noExiste(stationId)){
-            tranviazgzAppDB.putDoc({"fav": {"stationId": stationId, "name": name}});
+	/**
+	TYPES: TRAM, BUS, BIZI
+	*/
+    function addToFavorites(type, stationId, name){
+        if (typeof stationId !== "undefined" && noExiste(type, stationId)){
+            infozgzAppDB.putDoc({"fav": {"type": type, "stationId": stationId, "name": name}});
             return true;
         } else {
             return false;
         }
     }
 
-    function noExiste(stationId){
+    function noExiste(type, stationId){
         var noExiste = true;
         var index = 0;
         while (typeof favoritosModel.get(index).docId !== "undefined"){
@@ -132,7 +143,8 @@ MainView {
             if (typeof favorito.contents === "undefined"){
                 continuar = false;
                 break;
-            } else if (favorito.contents.stationId === stationId){
+            } else if (favorito.contents.stationId === stationId 
+				&& favorito.contents.type === type){
                 noExiste= false;
                 break;
             }
@@ -145,7 +157,7 @@ MainView {
     }
 
    function deleteFavorite(docId){
-       tranviazgzAppDB.deleteDoc(docId);
+       infozgzAppDB.deleteDoc(docId);
        //console.logs(docId+" deleted")
    }
 
@@ -159,17 +171,17 @@ MainView {
    ////////////////////
    // U1DB backend to record the last-picked station. Makes it faster for users to get information for their usual station.
     U1db.Database {
-        id: tranviazgzAppDB;
-        path: "UTranviaZgzApp.u1db"
+        id: infozgzAppDB;
+        path: "UInfoZgzApp.u1db"
     }
 
     U1db.Index {
-       database: tranviazgzAppDB
+       database: infozgzAppDB
        id: favIdx
        /* You have to specify in the index all fields you want to retrieve
           The query should return the whole document, not just indexed fields
           https://bugs.launchpad.net/u1db-qt/+bug/1271973 */
-       expression: ["fav.stationId", "fav.name"]
+       expression: ["fav.type", "fav.stationId", "fav.name"]
    }
    U1db.Query {
        id: favoritesQuery

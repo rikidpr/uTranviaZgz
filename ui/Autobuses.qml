@@ -14,11 +14,11 @@ Page {
 
     property color nextColor: "#AA0000"
     property color nextNextColor: "#EEAAAA"
-    property int preSelectedStationId:0
+    
     property int destinosOpacity:0;
     property int postesOpacity:0;
 
-    WorkerScript {
+	WorkerScript {
         id: queryPosteWorker
         source: "../js/infoBuses.js"
 
