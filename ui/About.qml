@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import import Ubuntu.Components 1.2
 
 Page {
 	id:aboutPage
