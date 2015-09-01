@@ -24,8 +24,17 @@ Page{
                     bottom: parent.bottom
                 }
                 width: parent.height
-                name:"favorite-unselected"
-				text:contents.type
+				source: {
+					var source;
+					if (contents.type==="BIZI"){
+						source = "img/bizi.png";
+					} else if (contents.type==="TRAM"){
+						source = "img/tram.png"
+					} else if (contents.type==="BUS"){
+						source = "img/bus.jpeg"
+					}
+					return source;
+				}
             }
             Label{
                 anchors {

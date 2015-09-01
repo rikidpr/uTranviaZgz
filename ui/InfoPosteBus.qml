@@ -10,6 +10,7 @@ Page {
 
     title: i18n.tr("Info Poste")
 
+	property string posteId;
 	property string posteName;
 
     Component.onCompleted: {
@@ -76,6 +77,10 @@ Page {
 
     ]
 	
+    AddFavoritePopover{
+        id:addFavoritePopover
+    }
+	
 	ActivityIndicator {
         id: activityIndicator
         anchors{
@@ -125,7 +130,7 @@ Page {
 					anchors {
 						top: parent.top
 						left: parent.left
-						ridht: parent.right
+						right: parent.right
 						margins: units.gu(1)
 					}
 				}
