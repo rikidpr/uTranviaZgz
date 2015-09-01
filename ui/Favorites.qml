@@ -27,11 +27,11 @@ Page{
 				source: {
 					var source;
 					if (contents.type==="BIZI"){
-						source = "img/bizi.png";
+						source = "../img/bizi.png";
 					} else if (contents.type==="TRAM"){
-						source = "img/tram.png"
+						source = "../img/tram.png"
 					} else if (contents.type==="BUS"){
-						source = "img/bus.jpeg"
+						source = "../img/bus.jpeg"
 					}
 					return source;
 				}

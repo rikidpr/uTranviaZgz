@@ -86,16 +86,6 @@ Page {
                 }
            }
         },
-        /*Action {
-            id: favoritesAction
-
-            iconName: "favorite-unselected"
-            text: "Favoritos"
-
-            onTriggered: {
-                pageStack.push(Qt.resolvedUrl("Favorites.qml"))
-            }
-        }*/
         Action {
             id: reloadAction
             iconName: "reload"

@@ -152,10 +152,10 @@ MainView {
     function setFavorite(type, stationId, name){
 		switch(type){
 		case "BIZI":
-			pageStack.push(Qt.resolvedUrl("ui/Bizi.qml"), {"stationId":stationId});
+			pageStack.push(Qt.resolvedUrl("ui/Bizi.qml"), {"preSelectedStationId":stationId});
 			break;
 		case "TRAM":
-			pageStack.push(Qt.resolvedUrl("ui/Tranvias.qml"), {"stationId":stationId});
+			pageStack.push(Qt.resolvedUrl("ui/Tranvias.qml"), {"preSelectedStationId":stationId});
 			break;
 		case "BUS":
 			pageStack.push(Qt.resolvedUrl("ui/InfoPosteBus.qml"), {"posteId":stationId, "posteName":name});

@@ -54,7 +54,7 @@ Page {
 
         OptionSelector {
             id: lineasSelector
-            containerHeight: units.gu(21.5)
+            containerHeight: units.gu(50)
             expanded: false
             model: lineasModel
 
@@ -112,7 +112,7 @@ Page {
 
         OptionSelector {
             id: posteSelector
-            containerHeight: units.gu(21.5)
+            containerHeight: units.gu(35)
             expanded: false
             opacity: postesOpacity
             //model: stationsModel
