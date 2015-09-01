@@ -1,12 +1,12 @@
 {
-    "name": "utranviazgz.andprsoft",
-    "description": "description of uTranviaZgz",
+    "name": "uinfozgz.andprsoft",
+    "description": "description of uInfoZgz",
     "architecture": "all",
-    "title": "uTranviaZgz",
+    "title": "uInfoZgz",
     "hooks": {
-        "TranviaZgz": {
-            "apparmor": "TranviaZgz.apparmor",
-            "desktop":  "TranviaZgz.desktop"
+        "InfoZgz": {
+            "apparmor": "InfoZgz.apparmor",
+            "desktop":  "InfoZgz.desktop"
         }
     },
     "version": "0.1",

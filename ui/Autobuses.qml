@@ -38,26 +38,6 @@ Page {
         }
     }
 
-/*
-   head.actions: [
-        Action {
-            id: reloadAction
-            iconName: "reload"
-            text: "reload"
-            onTriggered: getInfoStation();
-        }
-
-    ]
-
-    AddFavoritePopover{
-        id:addFavoritePopover
-    }
-
-    AboutPopover {
-        id: aboutPopover
-    }
-
-*/
     Column {
         id:columnCombos
         anchors.fill: parent
@@ -144,8 +124,10 @@ Page {
 
             onSelectedIndexChanged: {
                 if (posteSelector.selectedIndex > 0){
-                    var posteId = posteSelector.model.get(posteSelector.selectedIndex).idParada;
-                    getInfoPoste(posteId);
+					var poste = posteSelector.model.get(posteSelector.selectedIndex);
+                    var posteId = poste.idParada;
+					var posteName = poste.nombre;
+                    getInfoPoste(posteId, posteName);
                 }
             }
         }

@@ -7,7 +7,7 @@ import "ui"
 MainView {
     id: mainView
 
-    applicationName: "utranviazgz.andprsoft"
+    applicationName: "uinfozgz.andprsoft"
     property string version: "0.1"
 
     useDeprecatedToolbar: false
@@ -19,6 +19,17 @@ MainView {
         id:mainPage
         title: "Info Zgz"
         //head actions
+		head.actions: [
+			Action {
+				id: aboutAction
+
+				iconName: "info"
+				text: "About"
+
+				onTriggered: pageStack.push(Qt.resolvedUrl("ui/About.qml"));
+			}
+		]
+		
         GridLayout {
             id: grid
             columns: 2
@@ -96,9 +107,9 @@ MainView {
     ///  javascript  ///
     ////////////////////
 
-    function getInfoPoste(posteId){
+    function getInfoPoste(posteId, posteName){
         console.log("vamos a por la info del poste "+posteId);
-        pageStack.push(Qt.resolvedUrl("ui/InfoPosteBus.qml"),{"posteId":posteId});
+        pageStack.push(Qt.resolvedUrl("ui/InfoPosteBus.qml"),{"posteId":posteId, "posteName":posteName});
     }
 
     function getParadaIndex(stationId, stationsModel) {
@@ -109,7 +120,7 @@ MainView {
         return 0;
     }
 
-    function setFavorite(type, stationId){
+    function setFavorite(type, stationId, name){
 		switch(type){
 		case "BIZI":
 			pageStack.push(Qt.resolvedUrl("ui/Bizi.qml"), {"stationId":stationId});
@@ -118,7 +129,7 @@ MainView {
 			pageStack.push(Qt.resolvedUrl("ui/Tranvias.qml"), {"stationId":stationId});
 			break;
 		case "BUS":
-			pageStack.push(Qt.resolvedUrl("ui/InfoPosteBus.qml"), {"posteId":stationId});
+			pageStack.push(Qt.resolvedUrl("ui/InfoPosteBus.qml"), {"posteId":stationId, "posteName":name});
 			break;
     }
 
@@ -127,9 +138,12 @@ MainView {
 	*/
     function addToFavorites(type, stationId, name){
         if (typeof stationId !== "undefined" && noExiste(type, stationId)){
+			console.debug("no existe");
             infozgzAppDB.putDoc({"fav": {"type": type, "stationId": stationId, "name": name}});
+			console.log("insertado ok "+type+"-"+stationId+"-"+name);
             return true;
         } else {
+			console.log("existe");
             return false;
         }
     }

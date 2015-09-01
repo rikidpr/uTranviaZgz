@@ -47,7 +47,7 @@ Page{
                 ]
             }
             onClicked: {
-                setFavorite(contents.type, contents.stationId)
+                setFavorite(contents.type, contents.stationId, contents.name)
             }
         }
     }

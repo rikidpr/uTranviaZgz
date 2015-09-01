@@ -1,14 +1,13 @@
 import QtQuick 2.0
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
 import QtQuick.XmlListModel 2.0
+import "../components"
 
 Page {
     id: mainPage
 
     title: i18n.tr("Tranvia Zgz")
 
-    property color nextColor: "#AA0000"
-    property color nextNextColor: "#EEAAAA"
     property int preSelectedStationId:0
 
     Component.onCompleted: {
@@ -65,13 +64,11 @@ Page {
         }
     }
 
-/*
     AddFavoritePopover{
         id:addFavoritePopover
     }
-*/
 
-  /*  head.actions: [
+    head.actions: [
         Action {
             id: addFavoriteAction
 
@@ -80,15 +77,15 @@ Page {
 
             onTriggered: {
                 if (stationSelector.selectedIndex > 0){
-                    var stationId = stationsModel.get(stationSelector.selectedIndex).id;
+                    var stationId = stationSelector.model.get(stationSelector.selectedIndex).idParada;
                     var name = stationsModel.get(stationSelector.selectedIndex).name;
-                    if (addToFavorites(stationId, name)) {
+                    if (addToFavorites("TRAM", stationId, name)) {
                         PopupUtils.open(addFavoritePopover)
                     }
                 }
            }
         },
-        Action {
+        /*Action {
             id: favoritesAction
 
             iconName: "favorite-unselected"
@@ -97,15 +94,7 @@ Page {
             onTriggered: {
                 pageStack.push(Qt.resolvedUrl("Favorites.qml"))
             }
-        },
-        Action {
-            id: aboutAction
-
-            iconName: "info"
-            text: "About"
-
-            onTriggered: PopupUtils.open(aboutPopover)
-        }
+        }*/
         Action {
             id: reloadAction
             iconName: "reload"
@@ -113,7 +102,7 @@ Page {
             onTriggered: getInfoStation();
         }
 
-    ]*/
+    ]
 
     /*AboutPopover {
         id: aboutPopover
@@ -315,7 +304,7 @@ Page {
             width: parent.width / 2
             height: units.gu(13)
             radius: "medium"
-            color: nextColor
+            color: InfoZgzColors.darkRed
 
             Label {
                 text: "  Primero"
@@ -339,7 +328,7 @@ Page {
             width: parent.width / 2
             height: units.gu(13)
             radius: "medium"
-            color: nextNextColor
+            color: InfoZgzColors.pink
             Label {
                 text: "Segundo"
 

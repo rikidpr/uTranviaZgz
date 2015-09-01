@@ -6,14 +6,15 @@ import QtPositioning 5.2
 import QtQuick.XmlListModel 2.0
 import "../js/ApiKeys.js" as ApiKeys
 import "../js/CoordinatesUtil.js" as CoordUtil
+import "../components"
 
 Page {
     id: mainPage
 
     title: i18n.tr("UBiziZgz")
 
-    property color bikesAvailableColor: "#AA0000"
-    property color spotsAvailableColor: "#EEAAAA"
+    property color bikesAvailableColor: InfoZgzColors.darkRed
+    property color spotsAvailableColor: InfoZgzColors.pink
     property int preSelectedStationId:101
 
     // Always begin by loading the selected stop.
@@ -86,20 +87,8 @@ Page {
             onTriggered: {
                 pageStack.push(Qt.resolvedUrl("Favorites.qml"))
             }
-        },
-        Action {
-            id: aboutAction
-
-            iconName: "info"
-            text: "About"
-
-            onTriggered: PopupUtils.open(aboutPopover)
         }
     ]
-
-    AboutPopover {
-        id: aboutPopover
-    }
 
     Item {
         id: selectStationRow
