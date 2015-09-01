@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.2
 import QtQuick.XmlListModel 2.0
+import Ubuntu.Components.Popups 1.0
 import "../components"
 
 Page {
@@ -78,7 +79,7 @@ Page {
             onTriggered: {
                 if (stationSelector.selectedIndex > 0){
                     var stationId = stationSelector.model.get(stationSelector.selectedIndex).idParada;
-                    var name = stationsModel.get(stationSelector.selectedIndex).name;
+                    var name = stationSelector.model.get(stationSelector.selectedIndex).name;
                     if (addToFavorites("TRAM", stationId, name)) {
                         PopupUtils.open(addFavoritePopover)
                     }

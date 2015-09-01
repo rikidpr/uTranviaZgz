@@ -2,14 +2,14 @@ import QtQuick 2.0
 import Ubuntu.Components 1.2
 import QtQuick.XmlListModel 2.0
 import Ubuntu.Components.ListItems 0.1
-import "../componentes"
+import Ubuntu.Components.Popups 1.0
+import "../components"
 
 Page {
     id: infoPostePage
 
     title: i18n.tr("Info Poste")
 
-    property string posteId;
 	property string posteName;
 
     Component.onCompleted: {
@@ -107,61 +107,69 @@ Page {
         }
 		Component{ 
 			id:headerDelegate
-			Rectangle {
-                width: parent.width;
-                height: units.gu(8);
-                color: InfoZgzColor.redTitle
-            }
-			Label{
-				id: hInfoPoste
-				text: posteId+" - "+posteName
-				height: units.gu(4)
-				anchors {
-					top: parent.top
+			Item{
+				anchors{
 					left: parent.left
-					ridht: parent.right
-					margins: units.gu(1)
+					right: parent.right
+				}
+				height:units.gu(8)
+				Rectangle {
+					width: parent.width;
+					height: units.gu(8);
+					color: InfoZgzColor.redTitle
+				}
+				Label{
+					id: hInfoPoste
+					text: posteId+" - "+posteName
+					height: units.gu(4)
+					anchors {
+						top: parent.top
+						left: parent.left
+						ridht: parent.right
+						margins: units.gu(1)
+					}
+				}
+				Label {
+					id:hLinea
+					text: i18n.tr("Linea");
+					width: units.gu(5)
+					fontSize: "medium"
+					anchors {
+						top: hInfoPoste.bottom
+						bottom: parent.bottom
+						left: parent.left
+						margins: units.gu(1)
+					}
+					color: UbuntuColors.white
+				}
+				Label {
+					id: hPrimero
+					text: primero
+					width: units.gu(10)
+					fontSize: "medium"
+					anchors {
+						top: hInfoPoste.bottom
+						bottom: parent.bottom
+						left: hLinea.right
+						margins: units.gu(1)
+					}
+					color: UbuntuColors.white
+				}
+				Label {
+					id:hSegundo
+					text: segundo
+					width: units.gu(10)
+					fontSize: "medium"
+					anchors {
+						top: hInfoPoste.bottom
+						bottom: parent.bottom
+						left: hPrimero.right
+						margins: units.gu(1)
+					}
+					color: UbuntuColors.white
 				}
 			}
-			Label {
-				id:hLinea
-				text: i18n.tr("Linea");
-				width: units.gu(5)
-				fontSize: "medium"
-				anchors {
-					top: hInfoPoste.bottom
-					bottom: parent.bottom
-					left: parent.left
-					margins: units.gu(1)
-				}
-				color: UbuntuColors.white
-			}
-			Label {
-				id: hPrimero
-				text: primero
-				width: units.gu(10)
-				fontSize: "medium"
-				anchors {
-					top: hInfoPoste.bottom
-					bottom: parent.bottom
-					left: hLinea.right
-					margins: units.gu(1)
-				}
-				color: UbuntuColors.white
-			}
-			Label {
-				id:hSegundo
-				text: segundo
-				width: units.gu(10)
-				fontSize: "medium"
-				anchors {
-					top: hInfoPoste.bottom
-					bottom: parent.bottom
-					left: hPrimero.right
-					margins: units.gu(1)
-				}
-				color: UbuntuColors.white
-			}
+			
 		}
 		
         Component {
