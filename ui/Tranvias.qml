@@ -13,12 +13,33 @@ Page {
 
     Component.onCompleted: {
 		if (preSelectedStationId > 0){
-			queryInfoStationWorker.sendMessage({"stationId": preSelectedStationId})
+           obtenerInfoEstacion(preSelectedStationId);
+            //queryInfoStationWorker.sendMessage({"stationId": preSelectedStationId})
 		}
     }
 
     function obtenerInfoEstacion (stationId){
-        stationSelector.selectedIndex = getStationIndex(stationId, stationsModel)
+        console.debug("StationId:"+stationId);
+        var stationIndex = 0;
+        for (var i = 0; i < stationsModelAcademia.count; i++) {
+            if (stationId == stationsModelAcademia.get(i).idParada){
+                stationIndex = i;
+                destinoSelector.selectedIndex = 1;
+                break;
+            }
+        }
+        if (stationIndex == 0){
+            for (var i = 0; i < stationsModelMagoOz.count; i++) {
+                if (stationId == stationsModelMagoOz.get(i).idParada){
+                    stationIndex = i;
+                    destinoSelector.selectedIndex = 2;
+                    break;
+                }
+            }
+        }
+
+        console.debug("Tranvia station index:"+stationIndex);
+        stationSelector.selectedIndex = stationIndex;
     }
 
     WorkerScript {
@@ -295,7 +316,7 @@ Page {
             width: parent.width / 2
             height: units.gu(13)
             radius: "medium"
-            color: InfoZgzColors.darkRed
+            color: getColors().darkRed
 
             Label {
                 text: "  Primero"
@@ -319,7 +340,7 @@ Page {
             width: parent.width / 2
             height: units.gu(13)
             radius: "medium"
-            color: InfoZgzColors.pink
+            color: getColors().pink
             Label {
                 text: "Segundo"
 

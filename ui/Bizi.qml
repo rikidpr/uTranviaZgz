@@ -13,17 +13,31 @@ Page {
 
     title: i18n.tr("UBiziZgz")
 
-    property color bikesAvailableColor: InfoZgzColors.darkRed
-    property color spotsAvailableColor: InfoZgzColors.pink
+    property color bikesAvailableColor: getColors().darkRed
+    property color spotsAvailableColor: getColors().pink
     property int preSelectedStationId:101
 
     // Always begin by loading the selected stop.
     Component.onCompleted: {
+        console.debug(preSelectedStationId);
         queryStationsWorker.sendMessage({"stationId": preSelectedStationId})
     }
 
     function obtenerInfoEstacion (stationId){
         stationSelector.selectedIndex = getStationIndex(stationId, stationsModel)
+    }
+
+    function getStationIndex(stationId, stationsModel) {
+        console.debug("StationId:"+stationId);
+        var stationIndex = 0;
+        for (var i = 0; i < stationsModel.count; i++) {
+            if (stationId == stationsModel.get(i).id){
+                stationIndex = i;
+                break;
+            }
+        }
+        console.debug("Bizi station index:"+stationIndex);
+        return stationIndex;
     }
 
     WorkerScript {

@@ -32,7 +32,7 @@ Page {
                                        "primero":destinos[i].primero,
                                        "segundo":destinos[i].segundo});
             }
-			infoPostePage.state = "LOADED"
+            infoPostePage.state = "READY"
         }
     }
 
@@ -106,7 +106,7 @@ Page {
             footer: Rectangle {
                 width: parent.width;
                 height: units.gu(1);
-                color: InfoZgzColor.redTitle
+                color: getColors().redTitle
             }
             delegate: lineaInfoDelegate
         }
@@ -118,14 +118,25 @@ Page {
 					right: parent.right
 				}
 				height:units.gu(8)
+                Rectangle {
+                    id: rcInfoPoste
+                    width: parent.width;
+                    anchors.top: parent.top
+                    height: units.gu(4);
+                    color: "white"
+                }
 				Rectangle {
+                    id:rcTitle
 					width: parent.width;
-					height: units.gu(8);
-					color: InfoZgzColor.redTitle
+                    anchors.top: rcInfoPoste.bottom
+                    height: units.gu(4);
+                    color: getColors().redTitle
 				}
 				Label{
 					id: hInfoPoste
 					text: posteId+" - "+posteName
+                    font.bold: true
+                    color: getColors().redTitle
 					height: units.gu(4)
 					anchors {
 						top: parent.top
@@ -137,41 +148,44 @@ Page {
 				Label {
 					id:hLinea
 					text: i18n.tr("Linea");
-					width: units.gu(5)
-					fontSize: "medium"
+                    width: units.gu(7)
+                    fontSize: "large"
+                    font.bold: true
 					anchors {
-						top: hInfoPoste.bottom
+                        top: rcTitle.top
 						bottom: parent.bottom
-						left: parent.left
-						margins: units.gu(1)
+                        left: parent.left
+                        margins: units.gu(1)
 					}
-					color: UbuntuColors.white
+                    color: "white"
 				}
 				Label {
 					id: hPrimero
-					text: primero
-					width: units.gu(10)
-					fontSize: "medium"
+                    text: i18n.tr("Primero")
+                    width: units.gu(15)
+                    fontSize: "large"
+                    font.bold: true
 					anchors {
-						top: hInfoPoste.bottom
+                        top: rcTitle.top
 						bottom: parent.bottom
-						left: hLinea.right
-						margins: units.gu(1)
+                        left: hLinea.right
+                        margins: units.gu(1)
 					}
-					color: UbuntuColors.white
+                    color: "white"
 				}
 				Label {
 					id:hSegundo
-					text: segundo
-					width: units.gu(10)
-					fontSize: "medium"
+                    text: i18n.tr("Segundo")
+                    width: units.gu(15)
+                    fontSize: "large"
+                    font.bold: true
 					anchors {
-						top: hInfoPoste.bottom
+                        top: rcTitle.top
 						bottom: parent.bottom
-						left: hPrimero.right
-						margins: units.gu(1)
+                        left: hPrimero.right
+                        margins: units.gu(1)
 					}
-					color: UbuntuColors.white
+                    color: "white"
 				}
 			}
 			
@@ -191,46 +205,49 @@ Page {
                         right: parent.right
                     }
                     height: units.gu(4)
-                    color: index % 2 == 0 ? "white" : InfoZgzColors.redLink
+                    color: index % 2 == 0 ? "white" : getColors().redLink
                 }
                 Label {
 					id:lblLinea
                     text: linea
-                    width: units.gu(5)
-                    fontSize: "medium"
+                    width: units.gu(7)
+                    fontSize: "large"
+                    font.bold: true
                     anchors {
                         top: parent.top
                         bottom: parent.bottom
                         left: parent.left
                         margins: units.gu(1)
                     }
-                    color: index % 2 == 1 ? "white" : InfoZgzColors.redLink
+                    color: index % 2 == 1 ? "white" : getColors().redLink
                 }
 				Label {
 					id: lblPrimero
                     text: primero
-                    width: units.gu(10)
-                    fontSize: "medium"
+                    width: units.gu(15)
+                    fontSize: "large"
+                    font.bold: true
                     anchors {
                         top: parent.top
                         bottom: parent.bottom
                         left: lblLinea.right
                         margins: units.gu(1)
                     }
-                    color: index % 2 == 1 ? "white" : InfoZgzColors.redLink
+                    color: index % 2 == 1 ? "white" : getColors().redLink
                 }
 				Label {
 					id:lblSegundo
                     text: segundo
-                    width: units.gu(10)
-                    fontSize: "medium"
+                    width: units.gu(15)
+                    fontSize: "large"
+                    font.bold: true
                     anchors {
                         top: parent.top
                         bottom: parent.bottom
                         left: lblPrimero.right
                         margins: units.gu(1)
                     }
-                    color: index % 2 == 1 ? "white" : InfoZgzColors.redLink
+                    color: index % 2 == 1 ? "white" : getColors().redLink
                 }
             }
         }

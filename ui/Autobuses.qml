@@ -12,9 +12,6 @@ Page {
 
     title: i18n.tr("Urbanos Zgz")
 
-    property color nextColor: "#AA0000"
-    property color nextNextColor: "#EEAAAA"
-    
     property int destinosOpacity:0;
     property int postesOpacity:0;
 

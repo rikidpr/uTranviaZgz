@@ -1,5 +1,4 @@
 WorkerScript.onMessage = function(sentMessage) {
-    var apiKey = sentMessage.apiKey;
     var xmlHttp = new XMLHttpRequest();
     var msg;
     var parsedMsg;

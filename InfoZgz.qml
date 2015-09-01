@@ -3,6 +3,7 @@ import Ubuntu.Components 1.1
 import QtQuick.Layouts 1.1
 import U1db 1.0 as U1db
 import "ui"
+import "components"
 
 MainView {
     id: mainView
@@ -14,6 +15,7 @@ MainView {
 
     width: units.gu(45)
     height: units.gu(78)
+
 
     Page {
         id:mainPage
@@ -44,7 +46,7 @@ MainView {
 
             Rectangle {
                 id: tranvias_circle
-                color: UbuntuColors.white
+                color: "white"
                 width: parent.width/2
                 height: width
                 radius: width/2
@@ -66,7 +68,7 @@ MainView {
             }
             Rectangle {
                 id: bus_circle
-                color: UbuntuColors.white
+                color: "white"
                 width: parent.width/2
                 height: width
                 radius: width/2
@@ -86,7 +88,7 @@ MainView {
             }
             Rectangle {
                 id: bizi_circle
-                color: UbuntuColors.white
+                color: "white"
                 width: parent.width/2
                 height: width
                 radius: width/2
@@ -106,7 +108,7 @@ MainView {
             }
             Rectangle {
                 id: favoritos_circle
-                color: UbuntuColors.white
+                color: "white"
                 width: parent.width/2
                 height: width
                 radius: width/2
@@ -132,9 +134,17 @@ MainView {
         Component.onCompleted: push(mainPage)
     }
 
+    InfoZgzColors{
+        id:infoZgzColors
+    }
+
     ////////////////////
     ///  javascript  ///
     ////////////////////
+
+    function getColors(){
+        return infoZgzColors;
+    }
 
     function getInfoPoste(posteId, posteName){
         console.log("vamos a por la info del poste "+posteId);
@@ -150,6 +160,7 @@ MainView {
     }
 
     function setFavorite(type, stationId, name){
+        console.debug(type+" / "+stationId+" / "+name);
 		switch(type){
 		case "BIZI":
 			pageStack.push(Qt.resolvedUrl("ui/Bizi.qml"), {"preSelectedStationId":stationId});
