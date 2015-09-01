@@ -35,6 +35,7 @@ Makefile*
 po/
 .gitignore
 .gitignore~
+<<<<<<< HEAD
 
 js/linea21Destinos.qml
 js/linea21OLIVER.qml
@@ -141,3 +142,6 @@ js/lineaN7Destinos.qml
 js/lineas.json
 js/lineasAuzasaJson.zip
 js/lineasTuzsaJS-QML.zip
+=======
+js/ApiKeys.js
+>>>>>>> 5e1a259d68a778ec2b762ae403fead235d8b8c09

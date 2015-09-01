@@ -44,22 +44,30 @@ MainView {
 
             Rectangle {
                 id: tranvias_circle
-                color: UbuntuColors.blue
-                width: parent.width/3
+                color: UbuntuColors.white
+                width: parent.width/2
                 height: width
                 radius: width/2
+
                 MouseArea {
                     anchors.fill: parent
                     onPressed: {
                         pageStack.push(Qt.resolvedUrl("ui/Tranvias.qml"));
                     }
                 }
+                Icon {
+                    id: tramIcon
+                    source: "img/tram.png"
+                    width: parent.width/1.5
+                    height: width
+                    anchors.centerIn: parent
+                }
 
             }
             Rectangle {
                 id: bus_circle
                 color: UbuntuColors.white
-                width: parent.width/3
+                width: parent.width/2
                 height: width
                 radius: width/2
                 MouseArea {
@@ -68,11 +76,18 @@ MainView {
                         pageStack.push(Qt.resolvedUrl("ui/Autobuses.qml"));
                     }
                 }
+                Icon {
+                    id: busIcon
+                    source: "img/bus.jpeg"
+                    width: parent.width/1.5
+                    height: width
+                    anchors.centerIn: parent
+                }
             }
             Rectangle {
                 id: bizi_circle
-                color: UbuntuColors.orange
-                width: parent.width/3
+                color: UbuntuColors.white
+                width: parent.width/2
                 height: width
                 radius: width/2
                 MouseArea {
@@ -81,11 +96,18 @@ MainView {
                         pageStack.push(Qt.resolvedUrl("ui/Bizi.qml"));
                     }
                 }
+                Icon {
+                    id: biziIcon
+                    source: "img/bizi.png"
+                    width: parent.width/1.5
+                    height: width
+                    anchors.centerIn: parent
+                }
             }
             Rectangle {
                 id: favoritos_circle
-                color: UbuntuColors.warmgrey
-                width: parent.width/3
+                color: UbuntuColors.white
+                width: parent.width/2
                 height: width
                 radius: width/2
                 MouseArea {
@@ -93,6 +115,13 @@ MainView {
                     onPressed: {
                         pageStack.push(Qt.resolvedUrl("ui/Favorites.qml"));
                     }
+                }
+                Icon {
+                    id: favoriteIcon
+                    name: "favorite-unselected"
+                    width: parent.width/1.5
+                    height: width
+                    anchors.centerIn: parent
                 }
             }
         }
@@ -131,6 +160,7 @@ MainView {
 		case "BUS":
 			pageStack.push(Qt.resolvedUrl("ui/InfoPosteBus.qml"), {"posteId":stationId, "posteName":name});
 			break;
+        }
     }
 
 	/**
@@ -185,16 +215,14 @@ MainView {
    ////////////////////
    // U1DB backend to record the last-picked station. Makes it faster for users to get information for their usual station.
     U1db.Database {
-        id: infozgzAppDB;
+        id: infozgzAppDB
         path: "UInfoZgzApp.u1db"
     }
 
     U1db.Index {
        database: infozgzAppDB
        id: favIdx
-       /* You have to specify in the index all fields you want to retrieve
-          The query should return the whole document, not just indexed fields
-          https://bugs.launchpad.net/u1db-qt/+bug/1271973 */
+
        expression: ["fav.type", "fav.stationId", "fav.name"]
    }
    U1db.Query {

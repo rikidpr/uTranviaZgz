@@ -30,7 +30,7 @@ function getComponent(componentPath){
         return;
     } else {
         console.log("parece ok");
-        var elmodelico = component.createObject(tranviaZgzPage);
+        var elmodelico = component.createObject();
         return elmodelico;
     }
 
