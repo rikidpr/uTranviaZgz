@@ -23,7 +23,7 @@ Page {
 
         onMessage: {
             //reseteamos indicador y valores para recarga
-            //activityIndicator.running = false;
+			infoBusModel.clear();
             var destinos = messageObject.posteInfo.destinos;
             for(var i = 0; i< destinos.length ; i++){
                 console.log(destinos[i].primero);
