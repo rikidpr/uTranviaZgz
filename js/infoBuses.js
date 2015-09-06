@@ -13,7 +13,12 @@ WorkerScript.onMessage = function(sentMessage){
     console.log(url);
     xmlHttp.open("GET", url, true);
     xmlHttp.timeout = 4000; // Set timeout to 4 seconds (4000 milliseconds)
-    xmlHttp.ontimeout = timeout();
+    xmlHttp.ontimeout = function (posteId){
+        var msg = '{"id":"tuzsa-'+posteId+'", "timeout":"true"}';
+        console.debug("timeout!!!");
+        var poste = JSON.parse(msg);
+        WorkerScript.sendMessage({"posteInfo":poste});
+    };
     xmlHttp.send(null);
     xmlHttp.onreadystatechange = function() {
         console.log(xmlHttp.readyState+"-"+xmlHttp.status);
@@ -30,6 +35,7 @@ WorkerScript.onMessage = function(sentMessage){
 
 function timeout(posteId){
     var msg = '{"id":"tuzsa-'+posteId+'", "timeout":"true"}';
+    console.debug("timeout!!!");
     var poste = JSON.parse(msg);
     WorkerScript.sendMessage({"posteInfo":poste});
 }
