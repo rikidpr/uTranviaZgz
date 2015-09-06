@@ -50,6 +50,7 @@ Page{
                     Action {
                         iconName: "delete"
                         onTriggered:{
+                            console.debug("solicitud de borrado de favorito "+docId);
                             deleteFavorite(docId);
                         }
                     }

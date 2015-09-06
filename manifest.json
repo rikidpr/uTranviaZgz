@@ -4,9 +4,9 @@
     "architecture": "all",
     "title": "uInfoZgz",
     "hooks": {
-        "InfoZgz": {
-            "apparmor": "InfoZgz.apparmor",
-            "desktop":  "InfoZgz.desktop"
+        "uInfoZgz": {
+            "apparmor": "uInfoZgz.apparmor",
+            "desktop":  "uInfoZgz.desktop"
         }
     },
     "version": "0.1",

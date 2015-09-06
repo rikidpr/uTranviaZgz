@@ -22,15 +22,21 @@ Page {
         source: "../js/infoBuses.js"
 
         onMessage: {
-            //reseteamos indicador y valores para recarga
-            //activityIndicator.running = false;
-            var destinos = messageObject.posteInfo.destinos;
-            for(var i = 0; i< destinos.length ; i++){
-                console.log(destinos[i].primero);
-                infoBusModel.append({"linea": destinos[i].linea,
-                                       "destino":destinos[i].destino,
-                                       "primero":destinos[i].primero,
-                                       "segundo":destinos[i].segundo});
+            var posteInfo = messageObject.posteInfo;
+            if (posteInfo.timeout == 'true'){
+                infoBusModel.append({"linea": "-",
+                                       "destino":"timeout",
+                                       "primero":"-",
+                                       "segundo":"-"});
+            } else if (typeof posteInfo.destino != 'undefined'){
+                var destinos = messageObject.posteInfo.destinos;
+                for(var i = 0; i< destinos.length ; i++){
+                    console.log(destinos[i].primero);
+                    infoBusModel.append({"linea": destinos[i].linea,
+                                           "destino":destinos[i].destino,
+                                           "primero":destinos[i].primero,
+                                           "segundo":destinos[i].segundo});
+                }
             }
             infoPostePage.state = "READY"
         }

@@ -213,7 +213,7 @@ MainView {
 
    function deleteFavorite(docId){
        infozgzAppDB.deleteDoc(docId);
-       //console.logs(docId+" deleted")
+       console.debug(docId+" deleted")
    }
 
     ////////////////////////

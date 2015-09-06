@@ -15,26 +15,6 @@ Page {
     property int destinosOpacity:0;
     property int postesOpacity:0;
 
-	WorkerScript {
-        id: queryPosteWorker
-        source: "../js/infoBuses.js"
-
-        onMessage: {
-            infoBusModel.clear();
-            //reseteamos indicador y valores para recarga
-            //activityIndicator.running = false;
-            var destinos = messageObject.posteInfo.destinos;
-            for(var i = 0; i< destinos.length ; i++){
-                console.log(destinos[i].primero);
-                infoBusModel.append({"linea": destinos[i].linea,
-                                       "destino":destinos[i].destino,
-                                       "primero":destinos[i].primero,
-                                       "segundo":destinos[i].segundo});
-            }
-
-        }
-    }
-
     Column {
         id:columnCombos
         anchors.fill: parent
