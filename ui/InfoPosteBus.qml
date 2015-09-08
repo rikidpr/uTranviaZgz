@@ -22,16 +22,25 @@ Page {
         source: "../js/infoBuses.js"
 
         onMessage: {
-            //reseteamos indicador y valores para recarga
-			infoBusModel.clear();
-            var destinos = messageObject.posteInfo.destinos;
-            for(var i = 0; i< destinos.length ; i++){
-                console.log(destinos[i].primero);
-                infoBusModel.append({"linea": destinos[i].linea,
-                                       "destino":destinos[i].destino,
-                                       "primero":destinos[i].primero,
-                                       "segundo":destinos[i].segundo});
+            listadoDestinos.model.clear();
+            var posteInfo = messageObject.posteInfo;
+            console.debug('timeout:'+posteInfo.timeout);
+            if (typeof posteInfo.timeout != 'undefined' && posteInfo.timeout == 'true'){
+                infoBusModel.append({"linea": "-",
+                                       "destino":"timeout",
+                                       "primero":"-",
+                                       "segundo":"-"});
+            } else if (typeof posteInfo.destinos != 'undefined'){
+                var destinos = messageObject.posteInfo.destinos;
+                for(var i = 0; i< destinos.length ; i++){
+                    console.log(destinos[i].primero);
+                    infoBusModel.append({"linea": destinos[i].linea,
+                                           "destino":destinos[i].destino,
+                                           "primero":destinos[i].primero,
+                                           "segundo":destinos[i].segundo});
+                }
             }
+
             infoPostePage.state = "READY"
         }
     }
@@ -98,6 +107,7 @@ Page {
         anchors.fill: parent;
 		opacity:0;
         ListView {
+            id: listadoDestinos
             clip: true
             anchors.fill:parent
             model: infoBusModel
