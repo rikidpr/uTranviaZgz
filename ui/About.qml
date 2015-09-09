@@ -52,13 +52,13 @@ Page {
         id: aboutSection
         Column {
             anchors.centerIn: parent
-            width: root.width > units.gu(50) ? units.gu(50) : parent.width
+            width: aboutPage.width > units.gu(50) ? units.gu(50) : parent.width
             spacing: units.gu(4)
 
             UbuntuShape {
                 id: logo
 
-                width: root.width > units.gu(50) ? units.gu(25) : parent.width / 2
+                width: aboutPage.width > units.gu(50) ? units.gu(25) : parent.width / 2
                 height: width
                 radius: "medium"
 
@@ -150,7 +150,7 @@ Page {
 
         Column {
             anchors.fill: parent
-            width: root.width > units.gu(50) ? units.gu(50) : parent.width
+            width: aboutPage.width > units.gu(50) ? units.gu(50) : parent.width
 
             ListItem.Header {
                 text: i18n.tr("A big thanks to:")

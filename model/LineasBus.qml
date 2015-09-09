@@ -8,7 +8,7 @@ ListModel{
     ListElement{idLinea:'25'; descripcion:'LA CARTUJA - PASEO PAMPLONA'}
     ListElement{idLinea:'28'; descripcion:'COSO - PEÑAFLOR'}
     ListElement{idLinea:'29'; descripcion:'CAMINO LAS TORRES - SAN GREGORIO'}
-    ListElement{idLinea:'30'; descripcion:'-SCHUNGO-'}
+    ListElement{idLinea:'30'; descripcion:'LAS FUENTES'}
     ListElement{idLinea:'31'; descripcion:'ALJAFERIA - PUERTO VENECIA'}
     ListElement{idLinea:'32'; descripcion:'BOMBARDA - SANTA ISABEL'}
     ListElement{idLinea:'33'; descripcion:'DELICIAS - PINARES DE VENECIA'}
@@ -34,8 +34,9 @@ ListModel{
     ListElement{idLinea:'59'; descripcion:'ARCOSUR - TRANVIA'}
     ListElement{idLinea:'C1'; descripcion:'COMPLEJO FUNERARIO - PLAZA LAS CANTERAS'}
     ListElement{idLinea:'C4'; descripcion:'PLAZA LAS CANTERAS - PUERTO VENECIA'}
-    /*ListElement{idLinea:'Ci1'; descripcion:'destinos linea'}
-    ListElement{idLinea:'Ci2'; descripcion:'destinos linea'}
+	ListElement{idLinea:'Ci1'; descripcion:'CAMINO LAS TORRES - ESTACION DELICIAS'}
+    ListElement{idLinea:'Ci2'; descripcion:'ESTACION DELICIAS - CAMINO LAS TORRES'}
+    /*
     ListElement{idLinea:'N1'; descripcion:'destinos linea'}
     ListElement{idLinea:'N2'; descripcion:'destinos linea'}
     ListElement{idLinea:'N3'; descripcion:'destinos linea'}
