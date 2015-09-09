@@ -36,13 +36,11 @@ ListModel{
     ListElement{idLinea:'C4'; descripcion:'PLAZA LAS CANTERAS - PUERTO VENECIA'}
 	ListElement{idLinea:'Ci1'; descripcion:'CAMINO LAS TORRES - ESTACION DELICIAS'}
     ListElement{idLinea:'Ci2'; descripcion:'ESTACION DELICIAS - CAMINO LAS TORRES'}
-    /*
-    ListElement{idLinea:'N1'; descripcion:'destinos linea'}
-    ListElement{idLinea:'N2'; descripcion:'destinos linea'}
-    ListElement{idLinea:'N3'; descripcion:'destinos linea'}
-    ListElement{idLinea:'N4'; descripcion:'destinos linea'}
-    ListElement{idLinea:'N5'; descripcion:'destinos linea'}
-    ListElement{idLinea:'N6'; descripcion:'destinos linea'}
-    ListElement{idLinea:'N7'; descripcion:'destinos linea'}
-*/
+    ListElement{idLinea:'N1'; descripcion:'PLAZA ARAGON - SANTA ISABEL'}
+    ListElement{idLinea:'N2'; descripcion:'PLAZA ARAGON - PARQUE GOYA'}
+    ListElement{idLinea:'N3'; descripcion:'PASEO PAMPLONA - MIRALBUENO'}
+    ListElement{idLinea:'N4'; descripcion:'PASEO PAMPLONA - ROSALES DEL CANAL'}
+    ListElement{idLinea:'N5'; descripcion:'PLAZA ARAGON - LA PAZ'}
+    ListElement{idLinea:'N6'; descripcion:'PASEO PAMPLONA - LA CARTUJA'}
+    ListElement{idLinea:'N7'; descripcion:'PLAZA ARAGON - PEÑAFLOR'}
 }
