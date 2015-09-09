@@ -73,7 +73,7 @@ Page {
 
             onTriggered: {
 				if (addToFavorites("BUS", posteId, posteName)) {
-					PopupUtils.open(addFavoritePopover)
+                    PopupUtils.open(addFavoritePopover,infoPostePage)
 				}
            }
         },
